@@ -14,7 +14,7 @@ import whatsapp from './assets/icons-whatsapp.svg';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Testimonials from './components/Testimonials/Testimonials';
 import Services from './components/Services/Services';
 import Pricing from './components/Pricing/Pricing';
@@ -41,6 +41,8 @@ function App() {
   });
   const [activeSection, setActiveSection] = useState('home');
   const [isSidebarSticky, setIsSidebarSticky] = useState(false);
+  const isScrollSpyLockedRef = useRef(false);
+  const scrollSpyUnlockTimerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,6 +60,15 @@ function App() {
 
   useEffect(() => {
     const updateActiveSection = () => {
+      if (isScrollSpyLockedRef.current) {
+        window.clearTimeout(scrollSpyUnlockTimerRef.current);
+        scrollSpyUnlockTimerRef.current = window.setTimeout(() => {
+          isScrollSpyLockedRef.current = false;
+          updateActiveSection();
+        }, 140);
+        return;
+      }
+
       const viewportOffset = window.innerHeight * 0.3;
       let currentSection = NAV_SECTION_IDS[0];
 
@@ -79,10 +90,25 @@ function App() {
     window.addEventListener('resize', updateActiveSection);
 
     return () => {
+      window.clearTimeout(scrollSpyUnlockTimerRef.current);
       window.removeEventListener('scroll', updateActiveSection);
       window.removeEventListener('resize', updateActiveSection);
     };
   }, []);
+
+  const handleSelectSection = (sectionId, options = {}) => {
+    setActiveSection(sectionId);
+
+    if (!options.lockScrollSpy) {
+      return;
+    }
+
+    isScrollSpyLockedRef.current = true;
+    window.clearTimeout(scrollSpyUnlockTimerRef.current);
+    scrollSpyUnlockTimerRef.current = window.setTimeout(() => {
+      isScrollSpyLockedRef.current = false;
+    }, 900);
+  };
 
   return (
     <div className={cn(styles, 'page-layout page-layout--three-column')}>
@@ -314,7 +340,7 @@ function App() {
       </div>
       <Navigation
         activeSection={activeSection}
-        onSelectSection={setActiveSection}
+        onSelectSection={handleSelectSection}
         isDarkTheme={isDarkTheme}
         onToggleTheme={() => setIsDarkTheme((prevTheme) => !prevTheme)}
       />

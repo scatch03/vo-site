@@ -26,7 +26,7 @@ function Navigation({ activeSection, isDarkTheme, onSelectSection, onToggleTheme
     const section = document.getElementById(sectionId);
     if (!section) return;
 
-    onSelectSection(sectionId);
+    onSelectSection(sectionId, { lockScrollSpy: true });
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 

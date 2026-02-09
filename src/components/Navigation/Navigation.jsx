@@ -1,6 +1,7 @@
 import contrast from '../../assets/contrast.svg';
 import home from '../../assets/home.svg';
 import services from '../../assets/services.svg';
+import starNav from '../../assets/star-nav.svg';
 import education from '../../assets/cv.svg';
 import portfolio from '../../assets/portfolio.svg';
 import blog from '../../assets/blog.svg';
@@ -12,6 +13,7 @@ import { cn } from '../../utils/cn';
 const navItems = [
   { sectionId: 'home', label: 'Home', icon: home, alt: 'Home' },
   { sectionId: 'services', label: 'Services', icon: services, alt: 'Services' },
+  { sectionId: 'testimonials', label: 'Testimonials', icon: starNav, alt: 'Testimonials' },
   { sectionId: 'cv', label: 'CV', icon: education, alt: 'Curriculum Vitae' },
   { sectionId: 'portfolio', label: 'Portfolio', icon: portfolio, alt: 'Portfolio' },
   { sectionId: 'blog', label: 'Blog', icon: blog, alt: 'Blog' },

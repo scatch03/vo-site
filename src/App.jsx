@@ -30,7 +30,7 @@ import Hero from './components/Hero/Hero';
 import Footer from './components/Footer/Footer';
 import Navigation from './components/Navigation/Navigation';
 
-const NAV_SECTION_IDS = ['home', 'services', 'cv', 'portfolio', 'blog', 'contacts'];
+const NAV_SECTION_IDS = ['home', 'services', 'testimonials', 'cv', 'portfolio', 'blog', 'contacts'];
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(() => {

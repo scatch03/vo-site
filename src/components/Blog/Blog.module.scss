@@ -30,6 +30,9 @@
 }
 
 .blog__item {
+  flex: 0 0 calc((100% - 40px) / 3);
+  width: calc((100% - 40px) / 3);
+  min-width: 0;
   background-color: var(--surface);
   display: flex;
   flex-direction: column;
@@ -61,8 +64,11 @@
 }
 
 .blog__image {
+  display: block;
   margin-bottom: 25px;
   width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
 }
 
 .blog__link {
@@ -103,6 +109,7 @@
   }
 
   .blog__item {
+    flex: 0 0 calc(50% - 20px);
     width: calc(50% - 20px);
     min-width: 280px;
   }
@@ -131,6 +138,7 @@
   }
 
   .blog__item {
+    flex: 0 0 100%;
     width: 100%;
     min-width: 0;
   }

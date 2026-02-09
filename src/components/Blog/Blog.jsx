@@ -1,5 +1,5 @@
-import blog2 from '../../assets/blog2.jpg';
-import blog3 from '../../assets/blog3.jpg';
+import asaw from '../../assets/asaw.png';
+import pgi from '../../assets/pgi.jpg';
 import gt from '../../assets/gt.svg';
 import nplus1 from '../../assets/nplus1.jpg';
 import styles from './Blog.module.scss';
@@ -27,26 +27,26 @@ const Blog = () => {
               </div>
               <div className={cn(styles, 'blog__item')}>
                 <div>
-                  <img className={cn(styles, 'blog__image')} src={blog2} alt="Blog thumbnail" />
+                  <img className={cn(styles, 'blog__image')} src={asaw} alt="Blog thumbnail" />
                   <div className={cn(styles, 'blog__wrapper')}>
-                    <h5 className={cn(styles, 'blog__item-title')}>Make Business Card</h5>
-                    <p className={cn(styles, 'blog__text')}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, ducimus ea repellat officiis expedita modi eius.</p>
+                    <h5 className={cn(styles, 'blog__item-title')}>Async/Await in JavaScript: Patterns and Pitfalls</h5>
+                    <p className={cn(styles, 'blog__text')}>Understand event loop behavior, sequential vs parallel awaits, cancellation, and robust error handling for real production code.</p>
                   </div>
                 </div>
-                <a className={cn(styles, 'blog__link')} href="#">
+                <a className={cn(styles, 'blog__link')} href="/blog/async-await-javascript">
                     Learn more 
                     <img src={gt} alt="Greater than icon" />
                 </a>
               </div>
               <div className={cn(styles, 'blog__item')}>
                 <div>
-                  <img className={cn(styles, 'blog__image')} src={blog3} alt="Blog thumbnail" />
+                  <img className={cn(styles, 'blog__image')} src={pgi} alt="Blog thumbnail" />
                   <div className={cn(styles, 'blog__wrapper')}>
-                    <h5 className={cn(styles, 'blog__item-title')}>How to make Flyer Design</h5>
-                    <p className={cn(styles, 'blog__text')}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, ducimus ea repellat officiis expedita modi eius.</p>
+                    <h5 className={cn(styles, 'blog__item-title')}>Types of PostgreSQL Indexes: When to Use Each One</h5>
+                    <p className={cn(styles, 'blog__text')}>A practical guide to B-Tree, Hash, GIN, GiST, BRIN, and SP-GiST with SQL examples, query patterns, and EXPLAIN-based validation.</p>
                   </div>
                 </div>  
-                <a className={cn(styles, 'blog__link')} href="#">
+                <a className={cn(styles, 'blog__link')} href="/blog/postgresql-index-types">
                   Learn more 
                   <img src={gt} alt="Greater than icon" />
                 </a>

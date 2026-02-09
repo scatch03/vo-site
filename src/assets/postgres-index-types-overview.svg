@@ -1,0 +1,50 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" rx="24" fill="#F4F6FA"/>
+  <text x="62" y="72" fill="#1F2733" font-family="Arial, sans-serif" font-size="34" font-weight="700">PostgreSQL Index Types at a Glance</text>
+  <text x="62" y="108" fill="#4F5D75" font-family="Arial, sans-serif" font-size="22">Choose by query shape, not by habit.</text>
+
+  <rect x="62" y="142" width="1076" height="428" rx="16" fill="#FFFFFF" stroke="#D5DBE7"/>
+
+  <rect x="92" y="184" width="220" height="88" rx="12" fill="#E7F1FD" stroke="#B5CFF0"/>
+  <text x="116" y="222" fill="#294D78" font-family="Arial, sans-serif" font-size="24" font-weight="700">B-Tree</text>
+  <text x="116" y="240" fill="#3C5C84" font-family="Arial, sans-serif" font-size="15">Equality and range</text>
+  <text x="116" y="255" fill="#3C5C84" font-family="Arial, sans-serif" font-size="15">=, &lt;, &gt;, BETWEEN</text>
+  <text x="116" y="268" fill="#3C5C84" font-family="Arial, sans-serif" font-size="14">ORDER BY</text>
+
+  <rect x="336" y="184" width="220" height="88" rx="12" fill="#FCEFD9" stroke="#E9CA90"/>
+  <text x="360" y="222" fill="#6D5200" font-family="Arial, sans-serif" font-size="24" font-weight="700">Hash</text>
+  <text x="360" y="246" fill="#7D6522" font-family="Arial, sans-serif" font-size="16">Equality lookups</text>
+  <text x="360" y="264" fill="#7D6522" font-family="Arial, sans-serif" font-size="16">using = operator</text>
+
+  <rect x="580" y="184" width="220" height="88" rx="12" fill="#E9F8E6" stroke="#A9D7A7"/>
+  <text x="604" y="222" fill="#235923" font-family="Arial, sans-serif" font-size="24" font-weight="700">GIN</text>
+  <text x="604" y="246" fill="#336C33" font-family="Arial, sans-serif" font-size="16">JSONB, arrays, and</text>
+  <text x="604" y="264" fill="#336C33" font-family="Arial, sans-serif" font-size="16">full-text search</text>
+
+  <rect x="824" y="184" width="220" height="88" rx="12" fill="#EFEAFC" stroke="#CABCF0"/>
+  <text x="848" y="222" fill="#4D3B80" font-family="Arial, sans-serif" font-size="24" font-weight="700">GiST</text>
+  <text x="848" y="246" fill="#5C4C8D" font-family="Arial, sans-serif" font-size="16">Ranges, geometry, and</text>
+  <text x="848" y="264" fill="#5C4C8D" font-family="Arial, sans-serif" font-size="16">nearest-neighbor search</text>
+
+  <rect x="92" y="300" width="220" height="88" rx="12" fill="#FFF4DC" stroke="#EDCF8D"/>
+  <text x="116" y="338" fill="#6D5200" font-family="Arial, sans-serif" font-size="24" font-weight="700">BRIN</text>
+  <text x="116" y="362" fill="#7D6522" font-family="Arial, sans-serif" font-size="16">Huge append-only</text>
+  <text x="116" y="380" fill="#7D6522" font-family="Arial, sans-serif" font-size="16">time-series tables</text>
+
+  <rect x="336" y="300" width="220" height="88" rx="12" fill="#E6F7F7" stroke="#A4D8D8"/>
+  <text x="360" y="338" fill="#1E5E5E" font-family="Arial, sans-serif" font-size="24" font-weight="700">SP-GiST</text>
+  <text x="360" y="362" fill="#2D6F6F" font-family="Arial, sans-serif" font-size="16">Partitioned</text>
+  <text x="360" y="380" fill="#2D6F6F" font-family="Arial, sans-serif" font-size="16">search trees</text>
+
+  <rect x="580" y="300" width="464" height="88" rx="12" fill="#F6F7FB" stroke="#D5DBE7"/>
+  <text x="604" y="334" fill="#34445D" font-family="Arial, sans-serif" font-size="20">Rule of thumb: start with B-Tree,</text>
+  <text x="604" y="356" fill="#34445D" font-family="Arial, sans-serif" font-size="20">switch only when</text>
+  <text x="604" y="378" fill="#34445D" font-family="Arial, sans-serif" font-size="20">data/operator demands it.</text>
+
+  <rect x="92" y="420" width="952" height="116" rx="12" fill="#F5F7FC" stroke="#D5DBE7"/>
+  <text x="116" y="460" fill="#24364F" font-family="Arial, sans-serif" font-size="22" font-weight="700">Query pattern examples</text>
+  <text x="116" y="490" fill="#3E516E" font-family="Arial, sans-serif" font-size="18">• WHERE email = ? -&gt; B-Tree / Hash</text>
+  <text x="116" y="518" fill="#3E516E" font-family="Arial, sans-serif" font-size="18">• WHERE data @&gt; '{"role":"admin"}' -&gt; GIN (JSONB)</text>
+  <text x="604" y="490" fill="#3E516E" font-family="Arial, sans-serif" font-size="18">• tsrange overlap (&amp;&amp;) -&gt; GiST</text>
+  <text x="604" y="518" fill="#3E516E" font-family="Arial, sans-serif" font-size="18">• time-series scans -&gt; BRIN</text>
+</svg>

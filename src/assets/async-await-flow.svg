@@ -1,0 +1,45 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" rx="24" fill="#F4F6FA"/>
+  <text x="66" y="74" fill="#1F2733" font-family="Arial, sans-serif" font-size="34" font-weight="700">Async/Await Flow: Sequential vs Parallel</text>
+  <text x="66" y="110" fill="#4F5D75" font-family="Arial, sans-serif" font-size="22">Both styles are valid, but they have different runtime behavior.</text>
+
+  <rect x="60" y="146" width="520" height="420" rx="16" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="90" y="186" fill="#2A3B57" font-family="Arial, sans-serif" font-size="26" font-weight="700">Sequential awaits</text>
+
+  <rect x="92" y="220" width="454" height="70" rx="12" fill="#E8F1FE" stroke="#9FC0ED"/>
+  <text x="114" y="263" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="22">const user = await fetchUser(id);</text>
+
+  <line x1="318" y1="290" x2="318" y2="320" stroke="#8EA6C7" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="318,320 304,300 332,300" fill="#8EA6C7"/>
+
+  <rect x="92" y="334" width="454" height="70" rx="12" fill="#E8F1FE" stroke="#9FC0ED"/>
+  <text x="114" y="377" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="22">const stats = await fetchStats(id);</text>
+
+  <line x1="318" y1="404" x2="318" y2="434" stroke="#8EA6C7" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="318,434 304,414 332,414" fill="#8EA6C7"/>
+
+  <rect x="92" y="448" width="454" height="70" rx="12" fill="#E8F1FE" stroke="#9FC0ED"/>
+  <text x="114" y="491" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="22">const feed = await fetchFeed(id);</text>
+
+  <text x="90" y="550" fill="#5E6E86" font-family="Arial, sans-serif" font-size="20">Total latency ~ user + stats + feed</text>
+
+  <rect x="620" y="146" width="520" height="420" rx="16" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="650" y="186" fill="#2A3B57" font-family="Arial, sans-serif" font-size="26" font-weight="700">Parallel with Promise.all</text>
+
+  <rect x="652" y="220" width="454" height="70" rx="12" fill="#EAF8E7" stroke="#9AD29A"/>
+  <text x="674" y="263" fill="#2A5E2A" font-family="Arial, sans-serif" font-size="22">const userPromise = fetchUser(id);</text>
+
+  <rect x="652" y="315" width="454" height="70" rx="12" fill="#EAF8E7" stroke="#9AD29A"/>
+  <text x="674" y="358" fill="#2A5E2A" font-family="Arial, sans-serif" font-size="22">const statsPromise = fetchStats(id);</text>
+
+  <rect x="652" y="410" width="454" height="70" rx="12" fill="#EAF8E7" stroke="#9AD29A"/>
+  <text x="674" y="453" fill="#2A5E2A" font-family="Arial, sans-serif" font-size="22">const feedPromise = fetchFeed(id);</text>
+
+  <line x1="878" y1="290" x2="878" y2="315" stroke="#8FC18F" stroke-width="5" stroke-linecap="round"/>
+  <line x1="878" y1="385" x2="878" y2="410" stroke="#8FC18F" stroke-width="5" stroke-linecap="round"/>
+
+  <rect x="652" y="500" width="454" height="52" rx="10" fill="#D9F0D7" stroke="#78B778"/>
+  <text x="676" y="534" fill="#1F5A1F" font-family="Arial, sans-serif" font-size="21">const [user, stats, feed] = await Promise.all(...)</text>
+
+  <text x="650" y="580" fill="#5E6E86" font-family="Arial, sans-serif" font-size="20">Total latency ~ max(user, stats, feed)</text>
+</svg>

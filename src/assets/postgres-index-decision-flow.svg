@@ -1,0 +1,43 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="flow-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#9AA8BE"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="620" rx="24" fill="#F4F6FA"/>
+  <text x="64" y="72" fill="#1F2733" font-family="Arial, sans-serif" font-size="34" font-weight="700">Index Selection Flow (PostgreSQL)</text>
+
+  <rect x="84" y="124" width="1032" height="446" rx="16" fill="#FFFFFF" stroke="#D5DBE7"/>
+
+  <rect x="130" y="170" width="300" height="78" rx="12" fill="#E7F1FD" stroke="#B5CFF0"/>
+  <text x="158" y="218" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="22">What operator do you use?</text>
+
+  <rect x="500" y="170" width="270" height="78" rx="12" fill="#E9F8E6" stroke="#A9D7A7"/>
+  <text x="540" y="206" fill="#235923" font-family="Arial, sans-serif" font-size="22">Equality / range</text>
+  <text x="560" y="232" fill="#235923" font-family="Arial, sans-serif" font-size="22">B-Tree</text>
+
+  <rect x="500" y="284" width="270" height="78" rx="12" fill="#FCEFD9" stroke="#E9CA90"/>
+  <text x="536" y="320" fill="#6D5200" font-family="Arial, sans-serif" font-size="22">JSONB / arrays / text</text>
+  <text x="604" y="346" fill="#6D5200" font-family="Arial, sans-serif" font-size="22">GIN</text>
+
+  <rect x="500" y="398" width="270" height="78" rx="12" fill="#EFEAFC" stroke="#CABCF0"/>
+  <text x="548" y="434" fill="#4D3B80" font-family="Arial, sans-serif" font-size="22">Ranges / geometry</text>
+  <text x="604" y="460" fill="#4D3B80" font-family="Arial, sans-serif" font-size="22">GiST</text>
+
+  <rect x="838" y="170" width="270" height="78" rx="12" fill="#FFF4DC" stroke="#EDCF8D"/>
+  <text x="866" y="206" fill="#6D5200" font-family="Arial, sans-serif" font-size="21">Huge append-only table?</text>
+  <text x="918" y="232" fill="#6D5200" font-family="Arial, sans-serif" font-size="21">Consider BRIN</text>
+
+  <rect x="838" y="398" width="270" height="78" rx="12" fill="#E6F7F7" stroke="#A4D8D8"/>
+  <text x="870" y="434" fill="#1E5E5E" font-family="Arial, sans-serif" font-size="21">Need specialized tree</text>
+  <text x="898" y="460" fill="#1E5E5E" font-family="Arial, sans-serif" font-size="21">Check SP-GiST</text>
+
+  <rect x="130" y="506" width="936" height="38" rx="10" fill="#F5F7FC" stroke="#D5DBE7"/>
+  <text x="158" y="531" fill="#34445D" font-family="Arial, sans-serif" font-size="20">Validate with EXPLAIN (ANALYZE, BUFFERS). If planner ignores index, check selectivity and stats.</text>
+
+  <line x1="430" y1="209" x2="496" y2="209" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round" marker-end="url(#flow-arrow)"/>
+  <line x1="430" y1="209" x2="496" y2="323" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round" marker-end="url(#flow-arrow)"/>
+  <line x1="430" y1="209" x2="496" y2="437" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round" marker-end="url(#flow-arrow)"/>
+  <line x1="770" y1="209" x2="834" y2="209" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round" marker-end="url(#flow-arrow)"/>
+  <line x1="770" y1="437" x2="834" y2="437" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round" marker-end="url(#flow-arrow)"/>
+</svg>

@@ -1,0 +1,43 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" rx="24" fill="#F4F6FA"/>
+  <text x="66" y="74" fill="#1F2733" font-family="Arial, sans-serif" font-size="34" font-weight="700">How async/await works with the Event Loop</text>
+  <text x="66" y="110" fill="#4F5D75" font-family="Arial, sans-serif" font-size="22">await pauses the async function, not the whole JavaScript thread.</text>
+
+  <rect x="66" y="150" width="286" height="390" rx="16" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="96" y="191" fill="#2A3B57" font-family="Arial, sans-serif" font-size="25" font-weight="700">Call Stack</text>
+  <rect x="96" y="228" width="226" height="62" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="112" y="266" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="20">renderDashboard()</text>
+  <rect x="96" y="302" width="226" height="62" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="112" y="340" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="20">loadData() async</text>
+  <rect x="96" y="376" width="226" height="62" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="112" y="414" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="20">await fetch(...)</text>
+  <text x="96" y="484" fill="#5E6E86" font-family="Arial, sans-serif" font-size="18">Function yields control at await</text>
+
+  <rect x="448" y="150" width="286" height="390" rx="16" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="478" y="191" fill="#2A3B57" font-family="Arial, sans-serif" font-size="25" font-weight="700">Web APIs</text>
+  <rect x="478" y="240" width="226" height="82" rx="10" fill="#FFF4DF" stroke="#E9C982"/>
+  <text x="497" y="276" fill="#6F5700" font-family="Arial, sans-serif" font-size="20">fetch request in progress</text>
+  <text x="497" y="302" fill="#6F5700" font-family="Arial, sans-serif" font-size="20">outside call stack</text>
+  <rect x="478" y="348" width="226" height="82" rx="10" fill="#FFF4DF" stroke="#E9C982"/>
+  <text x="497" y="384" fill="#6F5700" font-family="Arial, sans-serif" font-size="20">Promise resolved</text>
+  <text x="497" y="410" fill="#6F5700" font-family="Arial, sans-serif" font-size="20">enqueue microtask</text>
+
+  <rect x="830" y="150" width="304" height="390" rx="16" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="860" y="191" fill="#2A3B57" font-family="Arial, sans-serif" font-size="25" font-weight="700">Queues</text>
+  <rect x="860" y="230" width="244" height="122" rx="10" fill="#E9F7E9" stroke="#A8D9A8"/>
+  <text x="879" y="266" fill="#245A24" font-family="Arial, sans-serif" font-size="20">Microtask queue</text>
+  <text x="879" y="294" fill="#245A24" font-family="Arial, sans-serif" font-size="20">resume async function</text>
+  <text x="879" y="322" fill="#245A24" font-family="Arial, sans-serif" font-size="20">before timers/callbacks</text>
+  <rect x="860" y="374" width="244" height="122" rx="10" fill="#F0ECFF" stroke="#C8B8F3"/>
+  <text x="879" y="410" fill="#4A3E7C" font-family="Arial, sans-serif" font-size="20">Callback queue</text>
+  <text x="879" y="438" fill="#4A3E7C" font-family="Arial, sans-serif" font-size="20">setTimeout / IO events</text>
+
+  <line x1="352" y1="337" x2="448" y2="337" stroke="#99A9C0" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="448,337 426,323 426,351" fill="#99A9C0"/>
+
+  <line x1="734" y1="389" x2="830" y2="291" stroke="#99A9C0" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="830,291 801,295 818,313" fill="#99A9C0"/>
+
+  <line x1="860" y1="332" x2="352" y2="452" stroke="#99A9C0" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="352,452 377,457 369,433" fill="#99A9C0"/>
+</svg>

@@ -17,6 +17,7 @@
   --accent: #ffb400;
   --accent-hover: #ffc700;
   --accent-strong: #e6a200;
+  --accent-link-hover: #f3d465;
 }
 
 body.dark-theme {
@@ -27,8 +28,10 @@ body.dark-theme {
   --text-primary: #ebf0f8;
   --text-muted: #a6b0bf;
   --tooltip-bg: #0d1118;
-  --accent-hover: #ffcd4d;
-  --accent-strong: #b37a00;
+  --accent: #d99a00;
+  --accent-hover: #d9a900;
+  --accent-strong: #c48a00;
+  --accent-link-hover: #cfb456;
 }
 
 body {
@@ -769,6 +772,22 @@ body.dark-theme .cv-button .cv-icon {
   background-color: var(--accent);
 }
 
+body.dark-theme .select-plan:not(.selected) {
+  background-color: #2c3747;
+  color: #f2f6fd;
+  border: 1px solid #637791;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-theme .select-plan:not(.selected):hover {
+  background-color: #3a4a60;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 0 18px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme .select-plan.selected {
+  color: #1c2430;
+}
+
 .testimonials {
   margin-top: 140px;
   text-align: center;
@@ -1105,7 +1124,7 @@ body.dark-theme .certification-logo-ccna {
 }
 
 .blog-link:hover {
-  color: #f3d465;
+  color: var(--accent-link-hover);
   transform: translateX(5px);
 }
 
@@ -1172,6 +1191,19 @@ form textarea {
   font-size: 16px;
 }
 
+body.dark-theme form input,
+body.dark-theme form textarea {
+  color: #edf3fc;
+  background-color: #253141;
+  border: 1px solid #3f5168;
+  caret-color: #edf3fc;
+}
+
+body.dark-theme form input::placeholder,
+body.dark-theme form textarea::placeholder {
+  color: #a3b0c2;
+}
+
 .send-btn {
   display: inline-block;
   background-color: var(--accent);
@@ -1208,7 +1240,7 @@ form textarea {
 }
 
 .icon {
-  background-color: #ffbf00;
+  background-color: var(--accent);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -1288,6 +1320,10 @@ form textarea {
   cursor: pointer;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   transform: scale(1.03);
+}
+
+body.dark-theme .portfolio-img:hover {
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.45);
 }
 
 

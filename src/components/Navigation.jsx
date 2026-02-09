@@ -26,15 +26,15 @@ function Navigation({ activeSection, isDarkTheme, onSelectSection, onToggleTheme
   };
 
   return (
-    <div className="side-navigation side-column">
-      <div className="switch-theme" onClick={onToggleTheme}>
+    <div className="side-nav page-layout__side">
+      <div className="side-nav__theme-switch" onClick={onToggleTheme}>
         <button
           type="button"
-          className="switch-theme-button"
+          className="side-nav__theme-button"
           aria-label={isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme'}
         >
           <img
-            className={`switch-theme-img${isDarkTheme ? ' switch-theme-img-active' : ''}`}
+            className={`side-nav__theme-icon${isDarkTheme ? ' side-nav__theme-icon--active' : ''}`}
             src={contrast}
             alt="Switch Theme"
           />
@@ -48,9 +48,9 @@ function Navigation({ activeSection, isDarkTheme, onSelectSection, onToggleTheme
             onClick={(event) => handleNavClick(event, sectionId)}
             aria-current={activeSection === sectionId ? 'location' : undefined}
           >
-            <div className={`nav-item${activeSection === sectionId ? ' nav-item-active' : ''}`}>
-              <span className='nav-item-tooltip'>{label}</span>
-              <img className='nav-image' src={icon} alt={alt} />
+            <div className={`side-nav__item${activeSection === sectionId ? ' side-nav__item--active' : ''}`}>
+              <span className='side-nav__tooltip'>{label}</span>
+              <img className='side-nav__icon' src={icon} alt={alt} />
             </div>
           </a>
         ))}

@@ -5,27 +5,27 @@ import triangle from '../assets/triangle.svg';
 
 const Hero = () => {
     return (
-        <header id="home" className="header">
-            <div className="circle-image-yellow-1"></div>
-            <div className="circle-image-yellow-2"></div>
-            <div className="circle-image-green-1"></div>
-            <div className="circle-image-green-2"></div>
-            <div className="square-image-blue-1"></div>
-            <div className="square-image-yellow-1"></div>
-            <img src={triangle} className="triangle-equilateral"></img>
+        <header id="home" className="hero">
+            <div className="hero__shape hero__shape--circle-yellow-1"></div>
+            <div className="hero__shape hero__shape--circle-yellow-2"></div>
+            <div className="hero__shape hero__shape--circle-green-1"></div>
+            <div className="hero__shape hero__shape--circle-green-2"></div>
+            <div className="hero__shape hero__shape--square-blue-1"></div>
+            <div className="hero__shape hero__shape--square-yellow-1"></div>
+            <img src={triangle} className="hero__triangle"></img>
 
-            <div className="header-text">
-              <h1 className='header-title'>I'm Oleksandr Vorona <br/>
-                <span className="developer-title">Software</span> Developer
+            <div className="hero__content">
+              <h1 className='hero__title'>I'm Oleksandr Vorona <br/>
+                <span className="hero__title-accent">Software</span> Developer
               </h1>
-              <div className="header-subtitle">
+              <div className="hero__subtitle">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.      
               </div>
-              <button className='action-button'>
+              <button className='hero__button'>
                 Get in touch <img src={arrowRight} alt="arrow right" />
               </button>
             </div>
-            <img className="header-image" src={photo} alt="Developer photo" />
+            <img className="hero__image" src={photo} alt="Developer photo" />
         </header>
     )
 }   

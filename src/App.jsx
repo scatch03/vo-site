@@ -39,13 +39,13 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const el = document.querySelector('.short-info');
+    const el = document.querySelector('.profile-sidebar');
     if (!el) return;
     const handleScroll = () => {
       if (window.scrollY >= 1045) {
-        el.classList.add('is-sticky');
+        el.classList.add('profile-sidebar--sticky');
       } else {
-        el.classList.remove('is-sticky');
+        el.classList.remove('profile-sidebar--sticky');
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -86,217 +86,217 @@ function App() {
   }, []);
 
   return (
-    <div className="container three-column-grid">
-      <aside className="short-info side-column">
-        <div className='info-avatar'>
-          <img className='avatar-img' src={avatar} alt="Avatar Photo" />
+    <div className="page-layout page-layout--three-column">
+      <aside className="profile-sidebar page-layout__side">
+        <div className='profile-sidebar__avatar'>
+          <img className='profile-sidebar__avatar-image' src={avatar} alt="Avatar Photo" />
         </div>
-        <h4 className='avatar-name'>Vorona Oleksandr</h4>
-        <h5 className='avatar-job'>Software Developer</h5>
-        <div className='quick-contacts'>
-          <div className='contact-icon-wrapper'>
+        <h4 className='profile-sidebar__name'>Vorona Oleksandr</h4>
+        <h5 className='profile-sidebar__job'>Software Developer</h5>
+        <div className='profile-sidebar__contacts'>
+          <div className='profile-sidebar__contact-item'>
             <a href='#'>
-              <img className='contact-icon' src={instagram} alt="Instagram" />
+              <img className='profile-sidebar__contact-icon' src={instagram} alt="Instagram" />
             </a>
           </div>
-          <div className='contact-icon-wrapper'>
+          <div className='profile-sidebar__contact-item'>
             <a href='#'>
-              <img className='contact-icon' src={telegram} alt="Telegram" />
+              <img className='profile-sidebar__contact-icon' src={telegram} alt="Telegram" />
             </a>
           </div>
-          <div className='contact-icon-wrapper'>
+          <div className='profile-sidebar__contact-item'>
             <a href='#'>
-              <img className='contact-icon' src={linkedin} alt="LinkedIn" />
+              <img className='profile-sidebar__contact-icon' src={linkedin} alt="LinkedIn" />
             </a>
           </div>
-          <div className='contact-icon-wrapper'>
+          <div className='profile-sidebar__contact-item'>
             <a href='#'>
-              <img className='contact-icon' src={whatsapp} alt="WhatsApp" />
+              <img className='profile-sidebar__contact-icon' src={whatsapp} alt="WhatsApp" />
             </a>
           </div>
-          <div className='contact-icon-wrapper'>
+          <div className='profile-sidebar__contact-item'>
             <a href='#'>
-              <img className='contact-icon' src={email} alt="Email" />
+              <img className='profile-sidebar__contact-icon' src={email} alt="Email" />
             </a>
           </div>
         </div>
-        <div className='about-me'>
-          <div className='fact'>
-            <div className='fact-name'>Age: </div>
+        <div className='profile-sidebar__about'>
+          <div className='profile-sidebar__fact'>
+            <div className='profile-sidebar__fact-name'>Age: </div>
             <div>39</div>
           </div>
-          <div className='fact'>
-            <div className='fact-name'>Residence: </div>
+          <div className='profile-sidebar__fact'>
+            <div className='profile-sidebar__fact-name'>Residence: </div>
             <div>UA</div>
           </div>
-          <div className='fact'>
-            <div className='fact-name'>Freelance: </div>
-            <div className="text-green">Available</div>
+          <div className='profile-sidebar__fact'>
+            <div className='profile-sidebar__fact-name'>Freelance: </div>
+            <div className="u-text-success">Available</div>
           </div>
-          <div className='fact'>
-            <div className='fact-name'>Location: </div>
+          <div className='profile-sidebar__fact'>
+            <div className='profile-sidebar__fact-name'>Location: </div>
             <div>Bratislava, SK</div>
           </div>
         </div>
-        <div className='languages'>
-          <h4 className='languages-title'>Languages</h4>
-          <div className='language-info'>
-            <div className='language-name'>Ukrainian</div>
-            <div className='language-score'>100%</div>
+        <div className='profile-sidebar__languages'>
+          <h4 className='profile-sidebar__section-title'>Languages</h4>
+          <div className='profile-sidebar__language-row'>
+            <div className='profile-sidebar__language-name'>Ukrainian</div>
+            <div className='profile-sidebar__language-score'>100%</div>
           </div>
-          <div className='bar'>
-            <div className='bar-inner-100'></div>
+          <div className='profile-sidebar__meter'>
+            <div className='profile-sidebar__meter-fill--100'></div>
           </div>
-          <div className='language-info'>
-            <div className='language-name'>Russian</div>
-            <div className='language-score'>100%</div>
+          <div className='profile-sidebar__language-row'>
+            <div className='profile-sidebar__language-name'>Russian</div>
+            <div className='profile-sidebar__language-score'>100%</div>
           </div>
-          <div className='bar'>
-            <div className='bar-inner-100'></div>
+          <div className='profile-sidebar__meter'>
+            <div className='profile-sidebar__meter-fill--100'></div>
           </div>
-          <div className='language-info'>
-            <div className='language-name'>English</div>
-            <div className='language-score'>95%</div>
+          <div className='profile-sidebar__language-row'>
+            <div className='profile-sidebar__language-name'>English</div>
+            <div className='profile-sidebar__language-score'>95%</div>
           </div>
-          <div className='bar'>
-            <div className='bar-inner-95'></div>
+          <div className='profile-sidebar__meter'>
+            <div className='profile-sidebar__meter-fill--95'></div>
           </div>
-          <div className='language-info'>
-            <div className='language-name'>German</div>
-            <div className='language-score'>80%</div>
+          <div className='profile-sidebar__language-row'>
+            <div className='profile-sidebar__language-name'>German</div>
+            <div className='profile-sidebar__language-score'>80%</div>
           </div>
-          <div className='bar'>
-            <div className='bar-inner-80'></div>
+          <div className='profile-sidebar__meter'>
+            <div className='profile-sidebar__meter-fill--80'></div>
           </div>
-          <div className='language-info'>
-            <div className='language-name'>Slovak</div>
-            <div className='language-score'>80%</div>
+          <div className='profile-sidebar__language-row'>
+            <div className='profile-sidebar__language-name'>Slovak</div>
+            <div className='profile-sidebar__language-score'>80%</div>
           </div>
-          <div className='bar'>
-            <div className='bar-inner-80'></div>
+          <div className='profile-sidebar__meter'>
+            <div className='profile-sidebar__meter-fill--80'></div>
           </div>
-          <div className='language-info'>
-            <div className='language-name'>Estonian</div>
-            <div className='language-score'>70%</div>
+          <div className='profile-sidebar__language-row'>
+            <div className='profile-sidebar__language-name'>Estonian</div>
+            <div className='profile-sidebar__language-score'>70%</div>
           </div>
-          <div className='bar'>
-            <div className='bar-inner-70'></div>
+          <div className='profile-sidebar__meter'>
+            <div className='profile-sidebar__meter-fill--70'></div>
           </div>
         </div>
-        <div className='skills'>
-            <h4 className='skills-title'>Skills</h4>
-            <div className='skills-info'>
-              <div className='skill-name'>Java</div>
-              <div className='skill-score'>100%</div>
+        <div className='profile-sidebar__skills'>
+            <h4 className='profile-sidebar__section-title'>Skills</h4>
+            <div className='profile-sidebar__skill-row'>
+              <div className='profile-sidebar__skill-name'>Java</div>
+              <div className='profile-sidebar__skill-score'>100%</div>
             </div>
-            <div className='bar'>
-              <div className='bar-inner-100'></div>
+            <div className='profile-sidebar__meter'>
+              <div className='profile-sidebar__meter-fill--100'></div>
             </div>
-            <div className='skills-info'>
-              <div className='skill-name'>JavaScript</div>
-              <div className='skill-score'>90%</div>
+            <div className='profile-sidebar__skill-row'>
+              <div className='profile-sidebar__skill-name'>JavaScript</div>
+              <div className='profile-sidebar__skill-score'>90%</div>
             </div>
-            <div className='bar'>
-              <div className='bar-inner-90'></div>
+            <div className='profile-sidebar__meter'>
+              <div className='profile-sidebar__meter-fill--90'></div>
             </div>
-            <div className='skills-info'>
-              <div className='skill-name'>Python</div>
-              <div className='skill-score'>90%</div>
+            <div className='profile-sidebar__skill-row'>
+              <div className='profile-sidebar__skill-name'>Python</div>
+              <div className='profile-sidebar__skill-score'>90%</div>
             </div>
-            <div className='bar'>
-              <div className='bar-inner-90'></div>
+            <div className='profile-sidebar__meter'>
+              <div className='profile-sidebar__meter-fill--90'></div>
             </div>
-            <div className='skills-info'>
-              <div className='skill-name'>HTML</div>
-              <div className='skill-score'>90%</div>
+            <div className='profile-sidebar__skill-row'>
+              <div className='profile-sidebar__skill-name'>HTML</div>
+              <div className='profile-sidebar__skill-score'>90%</div>
             </div>
-            <div className='bar'>
-              <div className='bar-inner-90'></div>
+            <div className='profile-sidebar__meter'>
+              <div className='profile-sidebar__meter-fill--90'></div>
             </div>
-            <div className='skills-info'>
-              <div className='skill-name'>CSS</div>
-              <div className='skill-score'>90%</div>
+            <div className='profile-sidebar__skill-row'>
+              <div className='profile-sidebar__skill-name'>CSS</div>
+              <div className='profile-sidebar__skill-score'>90%</div>
             </div>
-            <div className='bar'>
-              <div className='bar-inner-90'></div>
+            <div className='profile-sidebar__meter'>
+              <div className='profile-sidebar__meter-fill--90'></div>
             </div>
-            <div className='skills-info'>
-              <div className='skill-name'>SQL</div>
-              <div className='skill-score'>95%</div>
+            <div className='profile-sidebar__skill-row'>
+              <div className='profile-sidebar__skill-name'>SQL</div>
+              <div className='profile-sidebar__skill-score'>95%</div>
             </div>
-            <div className='bar'>
-              <div className='bar-inner-95'></div>
-            </div>
-        </div>
-        <div className='skills-placeholder'></div>
-        <div className='extra-skills'>
-            <h4 className='skills-title'>Extra Skills</h4>
-            <div className='skill-info'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>Spring Framework, Spring Boot</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>Hibernate, EclipseLink</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>Git, GitHub, GitLab</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>Kafka, RabbitMQ</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>MySQL, PostgreSQL, SQLite</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>Docker, Docker Compose</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>AWS, Digital Ocean</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>Redis, Memcached</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>MongoDB, HBase, Aerospike</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>React, Redux Toolkit</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>Data Science, AI/ML</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>Maven</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>Microservices, REST, gRPC</div>
-            </div>
-            <div className='skill-info mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='skill-name'>Node.js, TypeScript</div>
+            <div className='profile-sidebar__meter'>
+              <div className='profile-sidebar__meter-fill--95'></div>
             </div>
         </div>
-        <div className='cv'>
-          <button className='cv-button'>
+        <div className='profile-sidebar__skills-placeholder'></div>
+        <div className='profile-sidebar__extra-skills'>
+            <h4 className='profile-sidebar__section-title'>Extra Skills</h4>
+            <div className='profile-sidebar__extra-skill'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>Spring Framework, Spring Boot</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>Hibernate, EclipseLink</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>Git, GitHub, GitLab</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>Kafka, RabbitMQ</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>MySQL, PostgreSQL, SQLite</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>Docker, Docker Compose</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>AWS, Digital Ocean</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>Redis, Memcached</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>MongoDB, HBase, Aerospike</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>React, Redux Toolkit</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>Data Science, AI/ML</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>Maven</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>Microservices, REST, gRPC</div>
+            </div>
+            <div className='profile-sidebar__extra-skill u-mt-5'>
+              <img src={skill} alt='Skill Icon' />
+              <div className='profile-sidebar__skill-name'>Node.js, TypeScript</div>
+            </div>
+        </div>
+        <div className='profile-sidebar__cv'>
+          <button className='profile-sidebar__cv-button'>
             Download CV
-            <img className='cv-icon' src={downloadCv} alt="Download CV" />
+            <img className='profile-sidebar__cv-icon' src={downloadCv} alt="Download CV" />
           </button>
        </div>
-       <div className='short-info-placeholder'></div>
+       <div className='profile-sidebar__placeholder'></div>
       </aside>
-      <div className="main-content">
+      <div className="page-layout__main">
         <Hero />
         <main>
           <Services />

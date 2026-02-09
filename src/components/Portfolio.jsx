@@ -8,15 +8,15 @@
     const Portfolio = () => {
     return (
         <section id='portfolio' className='portfolio'>
-            <h3 className='portfolio-title'>Portfolio</h3>
-            <p className='portfolio-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
-            <div className='portfolio-grid'>
-              <img src={p1} className="portfolio-img" alt="Portfolio Icon"  />
-              <img src={p2} className="portfolio-img" alt="Portfolio Icon" />
-              <img src={p3} className="portfolio-img" alt="Portfolio Icon" />
-              <img src={p4} className="portfolio-img" alt="Portfolio Icon" />
-              <img src={p5} className="portfolio-img" alt="Portfolio Icon" />
-              <img src={p6} className="portfolio-img" alt="Portfolio Icon" />
+            <h3 className='portfolio__title'>Portfolio</h3>
+            <p className='portfolio__description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
+            <div className='portfolio__grid'>
+              <img src={p1} className="portfolio__image" alt="Portfolio Icon"  />
+              <img src={p2} className="portfolio__image" alt="Portfolio Icon" />
+              <img src={p3} className="portfolio__image" alt="Portfolio Icon" />
+              <img src={p4} className="portfolio__image" alt="Portfolio Icon" />
+              <img src={p5} className="portfolio__image" alt="Portfolio Icon" />
+              <img src={p6} className="portfolio__image" alt="Portfolio Icon" />
             </div>
           </section>
     )

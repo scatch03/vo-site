@@ -5,7 +5,7 @@ import gt from '../assets/gt.svg';
 
 const Blog = () => {
     return (
-       <section className='blog'>
+       <section id='blog' className='blog'>
             <h3 className='blog-title'>Blog</h3>
             <p className='blog-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
             <div className='blog-list'>

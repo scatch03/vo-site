@@ -5,7 +5,7 @@ import mobile from '../assets/mobile.svg';
 
 const Contact = () => {
     return (
-        <section className='contact'>
+        <section id='contacts' className='contact'>
                     <div className="form-container">
                       <h2 className='contact-title'>Leave a message</h2>
                       <form className="contact-form">

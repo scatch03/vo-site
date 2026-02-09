@@ -1,10 +1,3 @@
-import contrast from './assets/contrast.svg';
-import home from './assets/home.svg';
-import services from './assets/services.svg';
-import education from './assets/cv.svg';
-import portfolio from './assets/portfolio.svg';
-import blog from './assets/blog.svg';
-import contact from './assets/contact.svg';
 import avatar from './assets/avatar.jpg';
 import skill from './assets/skill.svg';
 import downloadCv from './assets/downloadCv.svg';
@@ -18,7 +11,7 @@ import whatsapp from './assets/icons-whatsapp.svg';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ClientsCarousel from './components/ClientsCarousel';
 import Testimonials from './components/Testimonials';
 import Services from './components/Services';
@@ -33,9 +26,19 @@ import Location from './components/Location';
 import Projects from './components/Projects';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
+import Navigation from './components/Navigation';
 
+const NAV_SECTION_IDS = ['home', 'services', 'cv', 'portfolio', 'blog', 'contacts'];
 
 function App() {
+  const [isDarkTheme, setIsDarkTheme] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false;
+    }
+    return window.localStorage.getItem('theme') === 'dark';
+  });
+  const [activeSection, setActiveSection] = useState('home');
+
   useEffect(() => {
     const el = document.querySelector('.short-info');
     if (!el) return;
@@ -48,6 +51,39 @@ function App() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-theme', isDarkTheme);
+    window.localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+  }, [isDarkTheme]);
+
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const viewportOffset = window.innerHeight * 0.3;
+      let currentSection = NAV_SECTION_IDS[0];
+
+      for (const sectionId of NAV_SECTION_IDS) {
+        const section = document.getElementById(sectionId);
+        if (!section) continue;
+
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop - viewportOffset <= 0) {
+          currentSection = sectionId;
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+    };
   }, []);
 
   return (
@@ -279,51 +315,12 @@ function App() {
         </main>
         <Footer />  
       </div>
-      <div className="side-navigation side-column">
-        <div className="switch-theme">
-          <a href="#">
-            <img className='switch-theme-img' src={contrast} alt="Switch Theme" />
-          </a>
-        </div>
-        <nav>
-          <a href="#">
-            <div className='nav-item'>
-              <span className='nav-item-tooltip'>Home</span>
-              <img className='nav-image' src={home} alt="Home" />
-            </div>
-          </a>
-          <a href="#">
-            <div className='nav-item'>
-              <span className='nav-item-tooltip'>Services</span>
-              <img className='nav-image' src={services} alt="Services" />
-            </div>
-          </a>
-          <a href="#">
-            <div className='nav-item'>
-              <span className='nav-item-tooltip'>CV</span>
-              <img className='nav-image' src={education} alt="Curriculum Vitae" />
-            </div>
-          </a>
-           <a href="#">
-            <div className='nav-item'>
-              <span className='nav-item-tooltip'>Portfolio</span>
-              <img className='nav-image' src={portfolio} alt="Portfolio" />
-            </div>
-          </a>
-          <a href="#">
-            <div className='nav-item'>
-              <span className='nav-item-tooltip'>Blog</span>
-              <img className='nav-image' src={blog} alt="Blog" />
-            </div>
-          </a>
-          <a href="#">
-            <div className='nav-item'>
-              <span className='nav-item-tooltip'>Contacts</span>
-              <img className='nav-image' src={contact} alt="Contacts" />
-            </div>
-          </a>
-        </nav>
-      </div>
+      <Navigation
+        activeSection={activeSection}
+        onSelectSection={setActiveSection}
+        isDarkTheme={isDarkTheme}
+        onToggleTheme={() => setIsDarkTheme((prevTheme) => !prevTheme)}
+      />
     </div>
   )
 }

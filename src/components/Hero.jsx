@@ -5,7 +5,7 @@ import triangle from '../assets/triangle.svg';
 
 const Hero = () => {
     return (
-        <header className="header">
+        <header id="home" className="header">
             <div className="circle-image-yellow-1"></div>
             <div className="circle-image-yellow-2"></div>
             <div className="circle-image-green-1"></div>

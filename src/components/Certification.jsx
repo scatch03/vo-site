@@ -27,7 +27,7 @@ const Certification = () => {
                 <div className='certification-institution'>
                   <div className='certification-name'>
                     CCNA Routing & Switching 
-                    <img className='certification-logo' src={ccna} alt='CCNA Logo' />
+                    <img className='certification-logo certification-logo-ccna' src={ccna} alt='CCNA Logo' />
                   </div> 
                 </div>
                 <div className='certification-text'>

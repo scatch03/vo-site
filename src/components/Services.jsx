@@ -7,7 +7,7 @@ import ads from '../assets/ads.svg';
 
 const Services = () => {
     return (
-<section className='my-services'>
+<section id='services' className='my-services'>
             <h3 className='services-title'>My Services</h3>
             <p className='services-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
             <div className='services-grid'>

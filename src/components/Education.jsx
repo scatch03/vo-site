@@ -5,7 +5,7 @@ import khpi from '../assets/khpi.png';
 
 const Education = () => {
     return (
-        <section className='education'>
+        <section id='cv' className='education'>
             <h3 className='education-title'>Education</h3>
             <p className='education-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
             <div className='education-list'>   
@@ -82,7 +82,7 @@ const Education = () => {
                 <div className='education-institution'>
                   <div className='institution-name'>
                     <a className='institution-link' href="https://kpi.ua/en/" target="_blank" rel="noopener noreferrer">
-                      <img className='institution-logo' src={kpi} alt='KPI Logo' />
+                      <img className='institution-logo institution-logo-kpi' src={kpi} alt='KPI Logo' />
                       National Technical University of Ukraine
                       "Igor Sikorsky Kyiv Polytechnic Institute"
                     </a>

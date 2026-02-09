@@ -7,7 +7,7 @@
 
     const Portfolio = () => {
     return (
-        <section className='portfolio'>
+        <section id='portfolio' className='portfolio'>
             <h3 className='portfolio-title'>Portfolio</h3>
             <p className='portfolio-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
             <div className='portfolio-grid'>

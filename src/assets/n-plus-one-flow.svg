@@ -1,0 +1,34 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" rx="24" fill="#F4F6FA"/>
+  <rect x="54" y="48" width="1092" height="112" rx="16" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="86" y="95" fill="#1F2733" font-family="Arial, sans-serif" font-size="30" font-weight="700">Step 1: Load Authors</text>
+  <text x="86" y="130" fill="#4F5D75" font-family="Arial, sans-serif" font-size="24">SELECT * FROM author LIMIT 100;</text>
+
+  <rect x="54" y="196" width="1092" height="376" rx="16" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="86" y="242" fill="#1F2733" font-family="Arial, sans-serif" font-size="30" font-weight="700">Step 2: Lazy relation triggers one query per author</text>
+
+  <rect x="92" y="275" width="450" height="78" rx="12" fill="#FFF7DD" stroke="#E6A200"/>
+  <text x="118" y="311" fill="#5B4700" font-family="Arial, sans-serif" font-size="20">for each author:</text>
+  <text x="118" y="336" fill="#5B4700" font-family="Arial, sans-serif" font-size="20">SELECT * FROM post WHERE author_id = ?</text>
+
+  <rect x="92" y="370" width="450" height="78" rx="12" fill="#FFF7DD" stroke="#E6A200"/>
+  <text x="118" y="418" fill="#5B4700" font-family="Arial, sans-serif" font-size="24">repeated N times while iterating in code</text>
+
+  <rect x="92" y="465" width="450" height="78" rx="12" fill="#FFF7DD" stroke="#E6A200"/>
+  <text x="118" y="513" fill="#5B4700" font-family="Arial, sans-serif" font-size="24">100 authors = 1 + 100 SQL queries</text>
+
+  <line x1="594" y1="314" x2="1102" y2="314" stroke="#9AA8BE" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="1102,314 1076,298 1076,330" fill="#9AA8BE"/>
+  <line x1="594" y1="409" x2="1102" y2="409" stroke="#9AA8BE" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="1102,409 1076,393 1076,425" fill="#9AA8BE"/>
+  <line x1="594" y1="504" x2="1102" y2="504" stroke="#9AA8BE" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="1102,504 1076,488 1076,520" fill="#9AA8BE"/>
+
+  <rect x="726" y="266" width="376" height="285" rx="14" fill="#EEF3FC" stroke="#CAD6EA"/>
+  <text x="758" y="317" fill="#2A3B57" font-family="Arial, sans-serif" font-size="26" font-weight="700">Database impact</text>
+  <text x="758" y="360" fill="#42526D" font-family="Arial, sans-serif" font-size="23">- Too many round trips</text>
+  <text x="758" y="399" fill="#42526D" font-family="Arial, sans-serif" font-size="23">- Connection pool pressure</text>
+  <text x="758" y="438" fill="#42526D" font-family="Arial, sans-serif" font-size="23">- Slow API tail latency</text>
+  <text x="758" y="477" fill="#42526D" font-family="Arial, sans-serif" font-size="23">- Higher DB CPU utilization</text>
+  <text x="758" y="516" fill="#42526D" font-family="Arial, sans-serif" font-size="23">- Unstable performance</text>
+</svg>

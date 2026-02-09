@@ -1,7 +1,7 @@
-import blog1 from '../../assets/blog1.jpg';
 import blog2 from '../../assets/blog2.jpg';
 import blog3 from '../../assets/blog3.jpg';
-import gt from '../../assets/gt.svg';  
+import gt from '../../assets/gt.svg';
+import nplus1 from '../../assets/nplus1.jpg';
 import styles from './Blog.module.scss';
 import { cn } from '../../utils/cn';
 
@@ -14,13 +14,13 @@ const Blog = () => {
             <div className={cn(styles, 'blog__list')}>
               <div className={cn(styles, 'blog__item')}>
                 <div>
-                  <img className={cn(styles, 'blog__image')} src={blog1} alt="Blog thumbnail" />
+                  <img className={cn(styles, 'blog__image')} src={nplus1} alt="Blog thumbnail" />
                   <div className={cn(styles, 'blog__wrapper')}>
-                    <h5 className={cn(styles, 'blog__item-title')}>How To Make Web Tempates</h5>
-                    <p className={cn(styles, 'blog__text')}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, ducimus ea repellat officiis expedita modi eius.</p>
+                    <h5 className={cn(styles, 'blog__item-title')}>N+1 Issue in Hibernate: Why It Happens and How to Fix It</h5>
+                    <p className={cn(styles, 'blog__text')}>Learn how lazy loading creates N+1 queries, how to detect it in logs, and when to use fetch join, EntityGraph, batch fetching, or DTO projections.</p>
                   </div>
                 </div>
-                <a className={cn(styles, 'blog__link')} href="#">
+                <a className={cn(styles, 'blog__link')} href="/blog/n-plus-one-hibernate">
                     Learn more 
                     <img src={gt} alt="Greater than icon" />
                 </a>

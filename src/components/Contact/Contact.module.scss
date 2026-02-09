@@ -1,0 +1,140 @@
+.contact {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 70px;
+}
+
+.contact__form-container {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__info-container {
+  flex: 3;
+}
+
+.contact__form {
+  background-color: var(--surface);
+  padding: 25px;
+  flex-grow: 1;
+}
+
+.contact__title {
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  color: var(--text-primary);
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+.contact__send-btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--text-primary);
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  margin-top: 25px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.contact__send-btn:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 0 15px rgba(255, 180, 0, 0.6), 0 0 40px rgba(255, 180, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.contact__info-box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+  margin-bottom: 15px;
+  padding: 25px 25px 15px 25px;
+  gap: 15px;
+}
+
+.contact__info-box:last-child {
+  margin-bottom: 0;
+}
+
+.contact__icon {
+  background-color: var(--accent);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  margin: 0 auto 18px;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact__info-line {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+
+  .contact {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .contact__title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .contact__title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .contact__title {
+    font-size: 24px;
+  }
+
+  .contact__form {
+    padding: 18px 14px;
+  }
+
+  .contact__info-box {
+    padding: 18px 14px 12px;
+  }
+
+  .contact__info-line {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .contact__title {
+    font-size: 22px;
+  }
+}

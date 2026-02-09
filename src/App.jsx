@@ -1,6 +1,9 @@
 import avatar from './assets/avatar.jpg';
 import skill from './assets/skill.svg';
 import downloadCv from './assets/downloadCv.svg';
+import styles from './App.module.scss';
+import { cn } from './utils/cn';
+
 
 import telegram from './assets/icons-telegram.svg';
 import linkedin from './assets/icons-linkedin.svg';
@@ -12,20 +15,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { useEffect, useState } from 'react';
-import Testimonials from './components/Testimonials';
-import Services from './components/Services';
-import Pricing from './components/Pricing';
-import Education from './components/Education';
-import Certification from './components/Certification';
-import Experience from './components/Experience';
-import Portfolio from './components/Portfolio';
-import Blog from './components/Blog';
-import Contact from './components/Contact';
-import Location from './components/Location';
-import Projects from './components/Projects';
-import Hero from './components/Hero';
-import Footer from './components/Footer';
-import Navigation from './components/Navigation';
+import Testimonials from './components/Testimonials/Testimonials';
+import Services from './components/Services/Services';
+import Pricing from './components/Pricing/Pricing';
+import Education from './components/Education/Education';
+import Certification from './components/Certification/Certification';
+import Experience from './components/Experience/Experience';
+import Portfolio from './components/Portfolio/Portfolio';
+import Blog from './components/Blog/Blog';
+import Contact from './components/Contact/Contact';
+import Location from './components/Location/Location';
+import Projects from './components/Projects/Projects';
+import Hero from './components/Hero/Hero';
+import Footer from './components/Footer/Footer';
+import Navigation from './components/Navigation/Navigation';
 
 const NAV_SECTION_IDS = ['home', 'services', 'cv', 'portfolio', 'blog', 'contacts'];
 
@@ -37,18 +40,14 @@ function App() {
     return window.localStorage.getItem('theme') === 'dark';
   });
   const [activeSection, setActiveSection] = useState('home');
+  const [isSidebarSticky, setIsSidebarSticky] = useState(false);
 
   useEffect(() => {
-    const el = document.querySelector('.profile-sidebar');
-    if (!el) return;
     const handleScroll = () => {
-      if (window.scrollY >= 1045) {
-        el.classList.add('profile-sidebar--sticky');
-      } else {
-        el.classList.remove('profile-sidebar--sticky');
-      }
+      setIsSidebarSticky(window.scrollY >= 1045);
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -86,217 +85,217 @@ function App() {
   }, []);
 
   return (
-    <div className="page-layout page-layout--three-column">
-      <aside className="profile-sidebar page-layout__side">
-        <div className='profile-sidebar__avatar'>
-          <img className='profile-sidebar__avatar-image' src={avatar} alt="Avatar Photo" />
+    <div className={cn(styles, 'page-layout page-layout--three-column')}>
+      <aside className={cn(styles, `profile-sidebar page-layout__side${isSidebarSticky ? ' profile-sidebar--sticky' : ''}`)}>
+        <div className={cn(styles, 'profile-sidebar__avatar')}>
+          <img className={cn(styles, 'profile-sidebar__avatar-image')} src={avatar} alt="Avatar Photo" />
         </div>
-        <h4 className='profile-sidebar__name'>Vorona Oleksandr</h4>
-        <h5 className='profile-sidebar__job'>Software Developer</h5>
-        <div className='profile-sidebar__contacts'>
-          <div className='profile-sidebar__contact-item'>
+        <h4 className={cn(styles, 'profile-sidebar__name')}>Vorona Oleksandr</h4>
+        <h5 className={cn(styles, 'profile-sidebar__job')}>Software Developer</h5>
+        <div className={cn(styles, 'profile-sidebar__contacts')}>
+          <div className={cn(styles, 'profile-sidebar__contact-item')}>
             <a href='#'>
-              <img className='profile-sidebar__contact-icon' src={instagram} alt="Instagram" />
+              <img className={cn(styles, 'profile-sidebar__contact-icon')} src={instagram} alt="Instagram" />
             </a>
           </div>
-          <div className='profile-sidebar__contact-item'>
+          <div className={cn(styles, 'profile-sidebar__contact-item')}>
             <a href='#'>
-              <img className='profile-sidebar__contact-icon' src={telegram} alt="Telegram" />
+              <img className={cn(styles, 'profile-sidebar__contact-icon')} src={telegram} alt="Telegram" />
             </a>
           </div>
-          <div className='profile-sidebar__contact-item'>
+          <div className={cn(styles, 'profile-sidebar__contact-item')}>
             <a href='#'>
-              <img className='profile-sidebar__contact-icon' src={linkedin} alt="LinkedIn" />
+              <img className={cn(styles, 'profile-sidebar__contact-icon')} src={linkedin} alt="LinkedIn" />
             </a>
           </div>
-          <div className='profile-sidebar__contact-item'>
+          <div className={cn(styles, 'profile-sidebar__contact-item')}>
             <a href='#'>
-              <img className='profile-sidebar__contact-icon' src={whatsapp} alt="WhatsApp" />
+              <img className={cn(styles, 'profile-sidebar__contact-icon')} src={whatsapp} alt="WhatsApp" />
             </a>
           </div>
-          <div className='profile-sidebar__contact-item'>
+          <div className={cn(styles, 'profile-sidebar__contact-item')}>
             <a href='#'>
-              <img className='profile-sidebar__contact-icon' src={email} alt="Email" />
+              <img className={cn(styles, 'profile-sidebar__contact-icon')} src={email} alt="Email" />
             </a>
           </div>
         </div>
-        <div className='profile-sidebar__about'>
-          <div className='profile-sidebar__fact'>
-            <div className='profile-sidebar__fact-name'>Age: </div>
+        <div className={cn(styles, 'profile-sidebar__about')}>
+          <div className={cn(styles, 'profile-sidebar__fact')}>
+            <div className={cn(styles, 'profile-sidebar__fact-name')}>Age: </div>
             <div>39</div>
           </div>
-          <div className='profile-sidebar__fact'>
-            <div className='profile-sidebar__fact-name'>Residence: </div>
+          <div className={cn(styles, 'profile-sidebar__fact')}>
+            <div className={cn(styles, 'profile-sidebar__fact-name')}>Residence: </div>
             <div>UA</div>
           </div>
-          <div className='profile-sidebar__fact'>
-            <div className='profile-sidebar__fact-name'>Freelance: </div>
-            <div className="u-text-success">Available</div>
+          <div className={cn(styles, 'profile-sidebar__fact')}>
+            <div className={cn(styles, 'profile-sidebar__fact-name')}>Freelance: </div>
+            <div className={cn(styles, 'u-text-success')}>Available</div>
           </div>
-          <div className='profile-sidebar__fact'>
-            <div className='profile-sidebar__fact-name'>Location: </div>
+          <div className={cn(styles, 'profile-sidebar__fact')}>
+            <div className={cn(styles, 'profile-sidebar__fact-name')}>Location: </div>
             <div>Bratislava, SK</div>
           </div>
         </div>
-        <div className='profile-sidebar__languages'>
-          <h4 className='profile-sidebar__section-title'>Languages</h4>
-          <div className='profile-sidebar__language-row'>
-            <div className='profile-sidebar__language-name'>Ukrainian</div>
-            <div className='profile-sidebar__language-score'>100%</div>
+        <div className={cn(styles, 'profile-sidebar__languages')}>
+          <h4 className={cn(styles, 'profile-sidebar__section-title')}>Languages</h4>
+          <div className={cn(styles, 'profile-sidebar__language-row')}>
+            <div className={cn(styles, 'profile-sidebar__language-name')}>Ukrainian</div>
+            <div className={cn(styles, 'profile-sidebar__language-score')}>100%</div>
           </div>
-          <div className='profile-sidebar__meter'>
-            <div className='profile-sidebar__meter-fill--100'></div>
+          <div className={cn(styles, 'profile-sidebar__meter')}>
+            <div className={cn(styles, 'profile-sidebar__meter-fill--100')}></div>
           </div>
-          <div className='profile-sidebar__language-row'>
-            <div className='profile-sidebar__language-name'>Russian</div>
-            <div className='profile-sidebar__language-score'>100%</div>
+          <div className={cn(styles, 'profile-sidebar__language-row')}>
+            <div className={cn(styles, 'profile-sidebar__language-name')}>Russian</div>
+            <div className={cn(styles, 'profile-sidebar__language-score')}>100%</div>
           </div>
-          <div className='profile-sidebar__meter'>
-            <div className='profile-sidebar__meter-fill--100'></div>
+          <div className={cn(styles, 'profile-sidebar__meter')}>
+            <div className={cn(styles, 'profile-sidebar__meter-fill--100')}></div>
           </div>
-          <div className='profile-sidebar__language-row'>
-            <div className='profile-sidebar__language-name'>English</div>
-            <div className='profile-sidebar__language-score'>95%</div>
+          <div className={cn(styles, 'profile-sidebar__language-row')}>
+            <div className={cn(styles, 'profile-sidebar__language-name')}>English</div>
+            <div className={cn(styles, 'profile-sidebar__language-score')}>95%</div>
           </div>
-          <div className='profile-sidebar__meter'>
-            <div className='profile-sidebar__meter-fill--95'></div>
+          <div className={cn(styles, 'profile-sidebar__meter')}>
+            <div className={cn(styles, 'profile-sidebar__meter-fill--95')}></div>
           </div>
-          <div className='profile-sidebar__language-row'>
-            <div className='profile-sidebar__language-name'>German</div>
-            <div className='profile-sidebar__language-score'>80%</div>
+          <div className={cn(styles, 'profile-sidebar__language-row')}>
+            <div className={cn(styles, 'profile-sidebar__language-name')}>German</div>
+            <div className={cn(styles, 'profile-sidebar__language-score')}>80%</div>
           </div>
-          <div className='profile-sidebar__meter'>
-            <div className='profile-sidebar__meter-fill--80'></div>
+          <div className={cn(styles, 'profile-sidebar__meter')}>
+            <div className={cn(styles, 'profile-sidebar__meter-fill--80')}></div>
           </div>
-          <div className='profile-sidebar__language-row'>
-            <div className='profile-sidebar__language-name'>Slovak</div>
-            <div className='profile-sidebar__language-score'>80%</div>
+          <div className={cn(styles, 'profile-sidebar__language-row')}>
+            <div className={cn(styles, 'profile-sidebar__language-name')}>Slovak</div>
+            <div className={cn(styles, 'profile-sidebar__language-score')}>80%</div>
           </div>
-          <div className='profile-sidebar__meter'>
-            <div className='profile-sidebar__meter-fill--80'></div>
+          <div className={cn(styles, 'profile-sidebar__meter')}>
+            <div className={cn(styles, 'profile-sidebar__meter-fill--80')}></div>
           </div>
-          <div className='profile-sidebar__language-row'>
-            <div className='profile-sidebar__language-name'>Estonian</div>
-            <div className='profile-sidebar__language-score'>70%</div>
+          <div className={cn(styles, 'profile-sidebar__language-row')}>
+            <div className={cn(styles, 'profile-sidebar__language-name')}>Estonian</div>
+            <div className={cn(styles, 'profile-sidebar__language-score')}>70%</div>
           </div>
-          <div className='profile-sidebar__meter'>
-            <div className='profile-sidebar__meter-fill--70'></div>
+          <div className={cn(styles, 'profile-sidebar__meter')}>
+            <div className={cn(styles, 'profile-sidebar__meter-fill--70')}></div>
           </div>
         </div>
-        <div className='profile-sidebar__skills'>
-            <h4 className='profile-sidebar__section-title'>Skills</h4>
-            <div className='profile-sidebar__skill-row'>
-              <div className='profile-sidebar__skill-name'>Java</div>
-              <div className='profile-sidebar__skill-score'>100%</div>
+        <div className={cn(styles, 'profile-sidebar__skills')}>
+            <h4 className={cn(styles, 'profile-sidebar__section-title')}>Skills</h4>
+            <div className={cn(styles, 'profile-sidebar__skill-row')}>
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Java</div>
+              <div className={cn(styles, 'profile-sidebar__skill-score')}>100%</div>
             </div>
-            <div className='profile-sidebar__meter'>
-              <div className='profile-sidebar__meter-fill--100'></div>
+            <div className={cn(styles, 'profile-sidebar__meter')}>
+              <div className={cn(styles, 'profile-sidebar__meter-fill--100')}></div>
             </div>
-            <div className='profile-sidebar__skill-row'>
-              <div className='profile-sidebar__skill-name'>JavaScript</div>
-              <div className='profile-sidebar__skill-score'>90%</div>
+            <div className={cn(styles, 'profile-sidebar__skill-row')}>
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>JavaScript</div>
+              <div className={cn(styles, 'profile-sidebar__skill-score')}>90%</div>
             </div>
-            <div className='profile-sidebar__meter'>
-              <div className='profile-sidebar__meter-fill--90'></div>
+            <div className={cn(styles, 'profile-sidebar__meter')}>
+              <div className={cn(styles, 'profile-sidebar__meter-fill--90')}></div>
             </div>
-            <div className='profile-sidebar__skill-row'>
-              <div className='profile-sidebar__skill-name'>Python</div>
-              <div className='profile-sidebar__skill-score'>90%</div>
+            <div className={cn(styles, 'profile-sidebar__skill-row')}>
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Python</div>
+              <div className={cn(styles, 'profile-sidebar__skill-score')}>90%</div>
             </div>
-            <div className='profile-sidebar__meter'>
-              <div className='profile-sidebar__meter-fill--90'></div>
+            <div className={cn(styles, 'profile-sidebar__meter')}>
+              <div className={cn(styles, 'profile-sidebar__meter-fill--90')}></div>
             </div>
-            <div className='profile-sidebar__skill-row'>
-              <div className='profile-sidebar__skill-name'>HTML</div>
-              <div className='profile-sidebar__skill-score'>90%</div>
+            <div className={cn(styles, 'profile-sidebar__skill-row')}>
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>HTML</div>
+              <div className={cn(styles, 'profile-sidebar__skill-score')}>90%</div>
             </div>
-            <div className='profile-sidebar__meter'>
-              <div className='profile-sidebar__meter-fill--90'></div>
+            <div className={cn(styles, 'profile-sidebar__meter')}>
+              <div className={cn(styles, 'profile-sidebar__meter-fill--90')}></div>
             </div>
-            <div className='profile-sidebar__skill-row'>
-              <div className='profile-sidebar__skill-name'>CSS</div>
-              <div className='profile-sidebar__skill-score'>90%</div>
+            <div className={cn(styles, 'profile-sidebar__skill-row')}>
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>CSS</div>
+              <div className={cn(styles, 'profile-sidebar__skill-score')}>90%</div>
             </div>
-            <div className='profile-sidebar__meter'>
-              <div className='profile-sidebar__meter-fill--90'></div>
+            <div className={cn(styles, 'profile-sidebar__meter')}>
+              <div className={cn(styles, 'profile-sidebar__meter-fill--90')}></div>
             </div>
-            <div className='profile-sidebar__skill-row'>
-              <div className='profile-sidebar__skill-name'>SQL</div>
-              <div className='profile-sidebar__skill-score'>95%</div>
+            <div className={cn(styles, 'profile-sidebar__skill-row')}>
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>SQL</div>
+              <div className={cn(styles, 'profile-sidebar__skill-score')}>95%</div>
             </div>
-            <div className='profile-sidebar__meter'>
-              <div className='profile-sidebar__meter-fill--95'></div>
-            </div>
-        </div>
-        <div className='profile-sidebar__skills-placeholder'></div>
-        <div className='profile-sidebar__extra-skills'>
-            <h4 className='profile-sidebar__section-title'>Extra Skills</h4>
-            <div className='profile-sidebar__extra-skill'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>Spring Framework, Spring Boot</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>Hibernate, EclipseLink</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>Git, GitHub, GitLab</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>Kafka, RabbitMQ</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>MySQL, PostgreSQL, SQLite</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>Docker, Docker Compose</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>AWS, Digital Ocean</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>Redis, Memcached</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>MongoDB, HBase, Aerospike</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>React, Redux Toolkit</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>Data Science, AI/ML</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>Maven</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>Microservices, REST, gRPC</div>
-            </div>
-            <div className='profile-sidebar__extra-skill u-mt-5'>
-              <img src={skill} alt='Skill Icon' />
-              <div className='profile-sidebar__skill-name'>Node.js, TypeScript</div>
+            <div className={cn(styles, 'profile-sidebar__meter')}>
+              <div className={cn(styles, 'profile-sidebar__meter-fill--95')}></div>
             </div>
         </div>
-        <div className='profile-sidebar__cv'>
-          <button className='profile-sidebar__cv-button'>
+        <div className={cn(styles, 'profile-sidebar__skills-placeholder')}></div>
+        <div className={cn(styles, 'profile-sidebar__extra-skills')}>
+            <h4 className={cn(styles, 'profile-sidebar__section-title')}>Extra Skills</h4>
+            <div className={cn(styles, 'profile-sidebar__extra-skill')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Spring Framework, Spring Boot</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Hibernate, EclipseLink</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Git, GitHub, GitLab</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Kafka, RabbitMQ</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>MySQL, PostgreSQL, SQLite</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Docker, Docker Compose</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>AWS, Digital Ocean</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Redis, Memcached</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>MongoDB, HBase, Aerospike</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>React, Redux Toolkit</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Data Science, AI/ML</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Maven</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Microservices, REST, gRPC</div>
+            </div>
+            <div className={cn(styles, 'profile-sidebar__extra-skill u-mt-5')}>
+              <img src={skill} alt='Skill Icon' />
+              <div className={cn(styles, 'profile-sidebar__skill-name')}>Node.js, TypeScript</div>
+            </div>
+        </div>
+        <div className={cn(styles, 'profile-sidebar__cv')}>
+          <button className={cn(styles, 'profile-sidebar__cv-button')}>
             Download CV
-            <img className='profile-sidebar__cv-icon' src={downloadCv} alt="Download CV" />
+            <img className={cn(styles, 'profile-sidebar__cv-icon')} src={downloadCv} alt="Download CV" />
           </button>
        </div>
-       <div className='profile-sidebar__placeholder'></div>
+       <div className={cn(styles, 'profile-sidebar__placeholder')}></div>
       </aside>
-      <div className="page-layout__main">
+      <div className={cn(styles, 'page-layout__main')}>
         <Hero />
         <main>
           <Services />

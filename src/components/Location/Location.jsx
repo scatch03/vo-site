@@ -1,6 +1,9 @@
+import styles from './Location.module.scss';
+import { cn } from '../../utils/cn';
+
 const Location = () => {
     return (
-        <section className='location'>
+        <section className={cn(styles, 'location')}>
             <iframe 
               src="https://www.google.com/maps?q=Nivy+Tower,+Bratislava,+Slovakia&output=embed" 
               width="100%" 

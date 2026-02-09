@@ -1,8 +1,11 @@
 import Slider from 'react-slick';
-import star from '../assets/star.svg';
-import testimonialsAvatar1 from '../assets/testimonialsAvatar1.png';
-import testimonialsAvatar2 from '../assets/testimonialsAvatar2.png';
-import testimonialsAvatar3 from '../assets/testimonialsAvatar3.png';
+import star from '../../assets/star.svg';
+import testimonialsAvatar1 from '../../assets/testimonialsAvatar1.png';
+import testimonialsAvatar2 from '../../assets/testimonialsAvatar2.png';
+import testimonialsAvatar3 from '../../assets/testimonialsAvatar3.png';
+import styles from './ClientsCarousel.module.scss';
+import { cn } from '../../utils/cn';
+
 
 const ClientsCarousel = () => {
   const settings = {
@@ -59,25 +62,25 @@ const ClientsCarousel = () => {
   ];
 
   return (
-    <div className="testimonials-carousel">
-      <Slider {...settings} className="testimonials-carousel__slider">
+    <div className={cn(styles, 'testimonials-carousel')}>
+      <Slider {...settings} className={cn(styles, 'testimonials-carousel__slider')}>
         {clientsTestimonials.map(({ title, text, authorName, authorRole, authorAvatar }, index) => (
-          <div key={`${authorName}-${index}`} className="testimonials-carousel__slide">
-            <div className="testimonials__card">
-              <ul className="testimonials__rating">
+          <div key={`${authorName}-${index}`} className={cn(styles, 'testimonials-carousel__slide')}>
+            <div className={cn(styles, 'testimonials__card')}>
+              <ul className={cn(styles, 'testimonials__rating')}>
                 <li><img src={star} alt="Star icon" /></li>
                 <li><img src={star} alt="Star icon" /></li>
                 <li><img src={star} alt="Star icon" /></li>
                 <li><img src={star} alt="Star icon" /></li>
                 <li><img src={star} alt="Star icon" /></li>
               </ul>
-              <h5 className="testimonials__card-title">{title}</h5>
-              <p className="testimonials__text">{text}</p>
-              <div className="testimonials__author">
-                <img className="testimonials__author-avatar" src={authorAvatar} alt="Author Avatar" />
+              <h5 className={cn(styles, 'testimonials__card-title')}>{title}</h5>
+              <p className={cn(styles, 'testimonials__text')}>{text}</p>
+              <div className={cn(styles, 'testimonials__author')}>
+                <img className={cn(styles, 'testimonials__author-avatar')} src={authorAvatar} alt="Author Avatar" />
                 <div>
-                  <div className="testimonials__author-name">{authorName}</div>
-                  <div className="testimonials__author-job">{authorRole}</div>
+                  <div className={cn(styles, 'testimonials__author-name')}>{authorName}</div>
+                  <div className={cn(styles, 'testimonials__author-job')}>{authorRole}</div>
                 </div>
               </div>
             </div>

@@ -1,0 +1,99 @@
+@import url('https://rsms.me/inter/inter.css');
+@import 'normalize.css';
+@import 'reset.css';
+* {
+  box-sizing: border-box;
+}
+:root {
+  --bg: #f5f5f5;
+  --bg-soft: #f5f5f5;
+  --surface: #ffffff;
+  --surface-muted: #f0f0f6;
+  --text-primary: #2b2b2b;
+  --text-muted: #767676;
+  --tooltip-bg: #10141b;
+  --accent: #ffb400;
+  --accent-hover: #ffc700;
+  --accent-strong: #e6a200;
+  --accent-link-hover: #f3d465;
+}
+:global(body.dark-theme) {
+  --bg: #11151d;
+  --bg-soft: #1a202b;
+  --surface: #1f2733;
+  --surface-muted: #2a3443;
+  --text-primary: #ebf0f8;
+  --text-muted: #a6b0bf;
+  --tooltip-bg: #0d1118;
+  --accent: #d99a00;
+  --accent-hover: #d9a900;
+  --accent-strong: #c48a00;
+  --accent-link-hover: #cfb456;
+}
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+form label {
+  font-family: 'Inter', sans-serif;
+  display: block;
+  margin: 25px 0 8px 0;
+  font-size: 18px;
+  color: var(--text-muted);
+}
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: var(--bg-soft);
+  font-size: 16px;
+}
+:global(body.dark-theme) form input, :global(body.dark-theme) form textarea {
+  color: #edf3fc;
+  background-color: #253141;
+  border: 1px solid #3f5168;
+  caret-color: #edf3fc;
+}
+:global(body.dark-theme) form input::placeholder, :global(body.dark-theme) form textarea::placeholder {
+  color: #a3b0c2;
+}
+@media (max-width: 1024px){
+  body {
+    padding-top: 86px;
+    padding-bottom: 0;
+  }
+
+  #home, #services, #cv, #portfolio, #blog, #contacts {
+    scroll-margin-top: 96px;
+  }
+}
+@media (max-width: 768px){
+  body {
+    padding-top: 80px;
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 640px){
+  body {
+    padding-top: 76px;
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 480px){
+  body {
+    padding-top: 72px;
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 375px){
+  body {
+    padding-top: 68px;
+    padding-bottom: 0;
+  }
+}

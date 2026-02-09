@@ -12,7 +12,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { useEffect, useState } from 'react';
-import ClientsCarousel from './components/ClientsCarousel';
 import Testimonials from './components/Testimonials';
 import Services from './components/Services';
 import Pricing from './components/Pricing';
@@ -302,7 +301,6 @@ function App() {
         <main>
           <Services />
           <Pricing />
-          <ClientsCarousel />
           <Testimonials />
           <Education />
           <Certification />

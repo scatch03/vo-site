@@ -1,0 +1,41 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" rx="24" fill="#F4F6FA"/>
+  <text x="64" y="74" fill="#1F2733" font-family="Arial, sans-serif" font-size="34" font-weight="700">JWT Authentication Flow in Spring Boot</text>
+  <text x="64" y="112" fill="#4F5D75" font-family="Arial, sans-serif" font-size="22">Stateless auth: validate token on each protected request.</text>
+
+  <rect x="80" y="160" width="240" height="96" rx="12" fill="#E7F1FD" stroke="#B5CFF0"/>
+  <text x="116" y="206" fill="#294D78" font-family="Arial, sans-serif" font-size="24" font-weight="700">Client</text>
+  <text x="116" y="234" fill="#3C5C84" font-family="Arial, sans-serif" font-size="18">Web or mobile app</text>
+
+  <rect x="390" y="160" width="420" height="96" rx="12" fill="#EAF8E7" stroke="#A9D7A7"/>
+  <text x="426" y="206" fill="#235923" font-family="Arial, sans-serif" font-size="24" font-weight="700">POST /api/auth/login</text>
+  <text x="426" y="234" fill="#336C33" font-family="Arial, sans-serif" font-size="18">Username + password validation</text>
+
+  <rect x="880" y="160" width="240" height="96" rx="12" fill="#FCEFD9" stroke="#E9CA90"/>
+  <text x="916" y="206" fill="#6D5200" font-family="Arial, sans-serif" font-size="24" font-weight="700">Spring Boot API</text>
+  <text x="916" y="234" fill="#7D6522" font-family="Arial, sans-serif" font-size="18">JwtService + UserDetails</text>
+
+  <line x1="320" y1="208" x2="390" y2="208" stroke="#9AA8BE" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="390,208 370,196 370,220" fill="#9AA8BE"/>
+  <line x1="810" y1="208" x2="880" y2="208" stroke="#9AA8BE" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="880,208 860,196 860,220" fill="#9AA8BE"/>
+
+  <rect x="80" y="304" width="1040" height="220" rx="14" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="110" y="350" fill="#2A3B57" font-family="Arial, sans-serif" font-size="26" font-weight="700">Protected request sequence</text>
+
+  <rect x="110" y="380" width="300" height="60" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="132" y="418" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="20">1) Authorization: Bearer token</text>
+
+  <rect x="450" y="380" width="300" height="60" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="472" y="418" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="20">2) JwtAuthenticationFilter parses token</text>
+
+  <rect x="790" y="380" width="300" height="60" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="812" y="418" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="20">3) SecurityContext is populated</text>
+
+  <line x1="410" y1="410" x2="450" y2="410" stroke="#9AA8BE" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="450,410 434,400 434,420" fill="#9AA8BE"/>
+  <line x1="750" y1="410" x2="790" y2="410" stroke="#9AA8BE" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="790,410 774,400 774,420" fill="#9AA8BE"/>
+
+  <text x="110" y="480" fill="#5E6E86" font-family="Arial, sans-serif" font-size="20">If signature is valid and token is not expired -> controller executes. Otherwise -> 401.</text>
+</svg>

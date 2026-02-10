@@ -3,6 +3,7 @@
   background-color: var(--surface);
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .hero__shape {
@@ -12,6 +13,7 @@
 
 .hero__image {
   padding: 8px 60px 0 20px;
+  height: auto;
 }
 
 .hero__content {

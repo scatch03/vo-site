@@ -43,6 +43,16 @@
   margin-top: auto;
 }
 
+.testimonials__author-avatar-link {
+  display: inline-flex;
+  border-radius: 50%;
+  outline: none;
+}
+
+.testimonials__author-avatar-link:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
 .testimonials__author-avatar {
   width: 80px;
   height: 80px;

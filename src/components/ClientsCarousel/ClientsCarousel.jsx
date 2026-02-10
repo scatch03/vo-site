@@ -38,6 +38,7 @@ const ClientsCarousel = () => {
       authorName: 'Anton Ruin',
       authorRole: 'CEO, Epom',
       authorAvatar: testimonialsAvatar4,
+      authorLinkedin: 'https://ua.linkedin.com/in/antonruin',
     },
     {
       title: 'Great expertise and a result-oriented approach.',
@@ -45,6 +46,7 @@ const ClientsCarousel = () => {
       authorName: 'Sergii Khlivnenko',
       authorRole: 'CEO, Slotif.ai',
       authorAvatar: testimonialsAvatar1,
+      authorLinkedin: 'https://www.linkedin.com/in/khlivnenko/',
     },
     {
       title: 'One of the best software developers I worked with',
@@ -52,6 +54,7 @@ const ClientsCarousel = () => {
       authorName: 'Denys Osochenko',
       authorRole: 'CEO, PaveNow',
       authorAvatar: testimonialsAvatar3,
+      authorLinkedin: 'https://www.linkedin.com/in/denisosochenko/',
     },
      {
       title: 'Skilled and responsible engineer',
@@ -59,13 +62,14 @@ const ClientsCarousel = () => {
       authorName: 'Maksym Skrypnikov',
       authorRole: 'Senior Developer',
       authorAvatar: testimonialsAvatar2,
+      authorLinkedin: 'https://www.linkedin.com/in/maksym-skrypnikov-1059802/',
     },
   ];
 
   return (
     <div className={cn(styles, 'testimonials-carousel')}>
       <Slider {...settings} className={cn(styles, 'testimonials-carousel__slider')}>
-        {clientsTestimonials.map(({ title, text, authorName, authorRole, authorAvatar }, index) => (
+        {clientsTestimonials.map(({ title, text, authorName, authorRole, authorAvatar, authorLinkedin }, index) => (
           <div key={`${authorName}-${index}`} className={cn(styles, 'testimonials-carousel__slide')}>
             <div className={cn(styles, 'testimonials__card')}>
               <ul className={cn(styles, 'testimonials__rating')}>
@@ -78,7 +82,15 @@ const ClientsCarousel = () => {
               <h5 className={cn(styles, 'testimonials__card-title')}>{title}</h5>
               <p className={cn(styles, 'testimonials__text')}>{text}</p>
               <div className={cn(styles, 'testimonials__author')}>
-                <img className={cn(styles, 'testimonials__author-avatar')} src={authorAvatar} alt="Author Avatar" />
+                <a
+                  className={cn(styles, 'testimonials__author-avatar-link')}
+                  href={authorLinkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${authorName} LinkedIn profile`}
+                >
+                  <img className={cn(styles, 'testimonials__author-avatar')} src={authorAvatar} alt={`${authorName} avatar`} />
+                </a>
                 <div>
                   <div className={cn(styles, 'testimonials__author-name')}>{authorName}</div>
                   <div className={cn(styles, 'testimonials__author-job')}>{authorRole}</div>

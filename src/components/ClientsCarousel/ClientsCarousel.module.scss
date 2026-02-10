@@ -3,6 +3,9 @@
   background-color: var(--surface);
   text-align: left;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .testimonials__rating {
@@ -37,6 +40,7 @@
   display: flex;
   gap: 15px;
   align-items: center;
+  margin-top: auto;
 }
 
 .testimonials__author-avatar {
@@ -78,9 +82,23 @@
   padding: 0 10px;
   display: block !important;
   outline: none;
+  height: 100%;
 }
 
 .testimonials-carousel__slide .testimonials__card {
+  height: 100%;
+}
+
+.testimonials-carousel__slider :global(.slick-track) {
+  display: flex !important;
+  align-items: stretch;
+}
+
+.testimonials-carousel__slider :global(.slick-slide) {
+  height: auto !important;
+}
+
+.testimonials-carousel__slider :global(.slick-slide > div) {
   height: 100%;
 }
 

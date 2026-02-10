@@ -9,6 +9,8 @@ import { cn } from '../../utils/cn';
 
 
 const ClientsCarousel = () => {
+  const recommendationsLink = 'https://www.linkedin.com/in/oleksandr-vorona-51906b234/details/recommendations/';
+
   const settings = {
     dots: true,
     infinite: true,
@@ -80,7 +82,15 @@ const ClientsCarousel = () => {
                 <li><img src={star} alt="Star icon" /></li>
               </ul>
               <h5 className={cn(styles, 'testimonials__card-title')}>{title}</h5>
-              <p className={cn(styles, 'testimonials__text')}>{text}</p>
+              <a
+                className={cn(styles, 'testimonials__text testimonials__text-link')}
+                href={recommendationsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open LinkedIn recommendations section"
+              >
+                {text}
+              </a>
               <div className={cn(styles, 'testimonials__author')}>
                 <a
                   className={cn(styles, 'testimonials__author-avatar-link')}

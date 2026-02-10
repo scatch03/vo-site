@@ -36,6 +36,25 @@
   margin-bottom: 30px;
 }
 
+.testimonials__text-link {
+  display: block;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.testimonials__text-link:hover {
+  color: color-mix(in srgb, var(--text-muted) 70%, #000 30%);
+}
+
+:global(body.dark-theme) .testimonials__text-link:hover {
+  color: color-mix(in srgb, var(--text-muted) 70%, #fff 30%);
+}
+
+.testimonials__text-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .testimonials__author {
   display: flex;
   gap: 15px;

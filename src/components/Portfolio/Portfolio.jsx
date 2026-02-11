@@ -12,8 +12,7 @@ const Portfolio = () => {
     <section id='portfolio' className={cn(styles, 'portfolio')}>
       <h3 className={cn(styles, 'portfolio__title')}>Portfolio</h3>
       <p className={cn(styles, 'portfolio__description')}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo,
-        corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.
+        A small selection of project examples illustrating different types of completed work.
       </p>
       <div className={cn(styles, 'portfolio__grid')}>
         <img src={p1} className={cn(styles, 'portfolio__image')} alt="Portfolio Icon" />

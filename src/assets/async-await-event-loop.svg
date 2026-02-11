@@ -1,4 +1,9 @@
 <svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="event-loop-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#99A9C0"/>
+    </marker>
+  </defs>
   <rect width="1200" height="620" rx="24" fill="#F4F6FA"/>
   <text x="66" y="74" fill="#1F2733" font-family="Arial, sans-serif" font-size="34" font-weight="700">How async/await works with the Event Loop</text>
   <text x="66" y="110" fill="#4F5D75" font-family="Arial, sans-serif" font-size="22">await pauses the async function, not the whole JavaScript thread.</text>
@@ -32,12 +37,7 @@
   <text x="879" y="410" fill="#4A3E7C" font-family="Arial, sans-serif" font-size="20">Callback queue</text>
   <text x="879" y="438" fill="#4A3E7C" font-family="Arial, sans-serif" font-size="20">setTimeout / IO events</text>
 
-  <line x1="352" y1="337" x2="448" y2="337" stroke="#99A9C0" stroke-width="5" stroke-linecap="round"/>
-  <polygon points="448,337 426,323 426,351" fill="#99A9C0"/>
-
-  <line x1="734" y1="389" x2="830" y2="291" stroke="#99A9C0" stroke-width="5" stroke-linecap="round"/>
-  <polygon points="830,291 801,295 818,313" fill="#99A9C0"/>
-
-  <line x1="860" y1="332" x2="352" y2="452" stroke="#99A9C0" stroke-width="5" stroke-linecap="round"/>
-  <polygon points="352,452 377,457 369,433" fill="#99A9C0"/>
+  <line x1="352" y1="210" x2="448" y2="210" stroke="#99A9C0" stroke-width="3" stroke-linecap="round" marker-end="url(#event-loop-arrow)"/>
+  <line x1="734" y1="210" x2="830" y2="210" stroke="#99A9C0" stroke-width="3" stroke-linecap="round" marker-end="url(#event-loop-arrow)"/>
+  <line x1="860" y1="520" x2="352" y2="520" stroke="#99A9C0" stroke-width="3" stroke-linecap="round" marker-end="url(#event-loop-arrow)"/>
 </svg>

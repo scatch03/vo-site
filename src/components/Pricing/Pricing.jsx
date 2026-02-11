@@ -8,7 +8,7 @@ const Pricing = () => {
     return (
         <section className={cn(styles, 'pricing')}>
             <h3 className={cn(styles, 'pricing__title')}>Price Plans</h3>
-            <p className={cn(styles, 'pricing__description')}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
+            <p className={cn(styles, 'pricing__description')}>Flexible pricing plans tailored to project scope, delivery speed, and technical complexity, with a clear focus on business value and predictable outcomes.</p>
             <div className={cn(styles, 'pricing__grid')}>
               <div className={cn(styles, 'pricing__card')}>
                 <h4 className={cn(styles, 'pricing__plan')}>Basic</h4>

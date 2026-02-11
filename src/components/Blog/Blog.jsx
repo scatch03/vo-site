@@ -2,6 +2,7 @@ import Slider from 'react-slick';
 import asaw from '../../assets/asaw.png';
 import pgi from '../../assets/pgi.jpg';
 import jwt from '../../assets/jwt.png';
+import mts from '../../assets/mts.png';
 import gt from '../../assets/gt.svg';
 import nplus1 from '../../assets/nplus1.jpg';
 import styles from './Blog.module.scss';
@@ -56,12 +57,18 @@ const Blog = () => {
         text: 'Build secure stateless auth with Spring Security 6, JWT filters, access and refresh tokens, and production-ready hardening practices.',
         href: '/blog/jwt-spring-boot',
       },
+      {
+        image: mts,
+        title: 'Using MongoDB for Time Series Data',
+        text: 'Learn how to model measurements, configure time series collections, aggregate by time windows, and manage retention at scale.',
+        href: '/blog/mongodb-time-series-data',
+      },
     ];
 
     return (
        <section id='blog' className={cn(styles, 'blog')}>
             <h3 className={cn(styles, 'blog__title')}>Blog</h3>
-            <p className={cn(styles, 'blog__description')}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
+            <p className={cn(styles, 'blog__description')}>This blog shares hands-on insights from building scalable systems, solving backend bottlenecks, and delivering reliable software in real business environments.</p>
             <div className={cn(styles, 'blog__carousel')}>
               <Slider {...settings} className={cn(styles, 'blog__slider')}>
                 {blogPosts.map(({ image, title, text, href }) => (

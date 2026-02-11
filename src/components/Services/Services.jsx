@@ -12,7 +12,7 @@ const Services = () => {
     return (
 <section id='services' className={cn(styles, 'services')}>
             <h3 className={cn(styles, 'services__title')}>My Services</h3>
-            <p className={cn(styles, 'services__description')}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
+            <p className={cn(styles, 'services__description')}>I deliver end-to-end software engineering services, from architecture and backend development to performance optimization and production support for high-load systems.</p>
             <div className={cn(styles, 'services__grid')}>
               <div className={cn(styles, 'services__card')}>
                 <img className={cn(styles, 'services__image')} src={coding} alt="Development" />

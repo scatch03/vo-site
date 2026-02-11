@@ -9,7 +9,7 @@ const Certification = () => {
     return (
         <section className={cn(styles, 'certification')}>
             <h3 className={cn(styles, 'certification__title')}>Certifications and Courses</h3>
-            <p className={cn(styles, 'certification__description')}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
+            <p className={cn(styles, 'certification__description')}>Continuous professional development through certifications and courses helps keep skills aligned with evolving technologies and production requirements.</p>
             <div className={cn(styles, 'certification__list')}>
               <div className={cn(styles, 'certification__card')}>
                 <div className={cn(styles, 'certification__institution')}>

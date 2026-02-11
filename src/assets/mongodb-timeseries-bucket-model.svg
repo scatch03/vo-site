@@ -1,0 +1,37 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" rx="24" fill="#F4F6FA"/>
+  <text x="64" y="74" fill="#1F2733" font-family="Arial, sans-serif" font-size="34" font-weight="700">Bucket Model Behind MongoDB Time Series</text>
+  <text x="64" y="110" fill="#4F5D75" font-family="Arial, sans-serif" font-size="22">MongoDB stores many measurements in compressed internal bucket documents.</text>
+
+  <rect x="78" y="156" width="530" height="404" rx="14" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="108" y="196" fill="#2A3B57" font-family="Arial, sans-serif" font-size="24" font-weight="700">Logical measurement documents</text>
+
+  <rect x="108" y="224" width="470" height="72" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="128" y="252" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">{ "ts": ISODate(...), "sensorId": "A1", "temp": 22.4 }</text>
+  <text x="128" y="276" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">one document per event (application view)</text>
+
+  <rect x="108" y="316" width="470" height="72" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="128" y="344" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">{ "ts": ISODate(...), "sensorId": "A1", "temp": 22.7 }</text>
+  <text x="128" y="368" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">same metaField, close timestamps</text>
+
+  <rect x="108" y="408" width="470" height="72" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="128" y="436" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">{ "ts": ISODate(...), "sensorId": "A1", "temp": 22.1 }</text>
+  <text x="128" y="460" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">grouped into one internal bucket</text>
+
+  <rect x="656" y="156" width="466" height="404" rx="14" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="686" y="196" fill="#2A3B57" font-family="Arial, sans-serif" font-size="24" font-weight="700">Internal bucket representation</text>
+
+  <rect x="686" y="224" width="406" height="304" rx="10" fill="#FFF4DF" stroke="#E9C982"/>
+  <text x="708" y="252" fill="#6F5700" font-family="Arial, sans-serif" font-size="18">control.min.ts / control.max.ts</text>
+  <text x="708" y="278" fill="#6F5700" font-family="Arial, sans-serif" font-size="18">meta: { sensorId: "A1" }</text>
+  <text x="708" y="304" fill="#6F5700" font-family="Arial, sans-serif" font-size="18">data.ts:   [t1, t2, t3, ...]</text>
+  <text x="708" y="330" fill="#6F5700" font-family="Arial, sans-serif" font-size="18">data.temp: [22.4, 22.7, 22.1, ...]</text>
+  <text x="708" y="368" fill="#6F5700" font-family="Arial, sans-serif" font-size="18">compressed storage</text>
+  <text x="708" y="392" fill="#6F5700" font-family="Arial, sans-serif" font-size="18">fewer index entries</text>
+  <text x="708" y="416" fill="#6F5700" font-family="Arial, sans-serif" font-size="18">efficient range scans</text>
+  <text x="708" y="448" fill="#6F5700" font-family="Arial, sans-serif" font-size="18">TTL expiration by timeField</text>
+  <text x="708" y="472" fill="#6F5700" font-family="Arial, sans-serif" font-size="18">optional granularity tuning</text>
+
+  <line x1="608" y1="352" x2="656" y2="352" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="656,352 644,345 644,359" fill="#9AA8BE"/>
+</svg>

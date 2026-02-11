@@ -10,7 +10,7 @@ const Education = () => {
     return (
         <section id='cv' className={cn(styles, 'education')}>
             <h3 className={cn(styles, 'education__title')}>Education</h3>
-            <p className={cn(styles, 'education__description')}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
+            <p className={cn(styles, 'education__description')}>I focus on continuous education: strengthening core engineering principles while staying current with modern technologies, frameworks, and production practices.</p>
             <div className={cn(styles, 'education__list')}>   
               <div className={cn(styles, 'education__card')}>
                 <div className={cn(styles, 'education__institution')}>

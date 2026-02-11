@@ -1,0 +1,47 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" rx="24" fill="#F4F6FA"/>
+  <text x="64" y="74" fill="#1F2733" font-family="Arial, sans-serif" font-size="34" font-weight="700">MongoDB Time Series Flow</text>
+  <text x="64" y="110" fill="#4F5D75" font-family="Arial, sans-serif" font-size="22">High-ingest metrics and events using native time series collections.</text>
+
+  <rect x="84" y="160" width="220" height="94" rx="12" fill="#E7F1FD" stroke="#B5CFF0"/>
+  <text x="112" y="204" fill="#294D78" font-family="Arial, sans-serif" font-size="24" font-weight="700">Data Producers</text>
+  <text x="112" y="232" fill="#3C5C84" font-family="Arial, sans-serif" font-size="18">apps, devices, services</text>
+
+  <rect x="366" y="160" width="330" height="94" rx="12" fill="#EAF8E7" stroke="#A9D7A7"/>
+  <text x="394" y="198" fill="#235923" font-family="Arial, sans-serif" font-size="23" font-weight="700">insertOne / bulkWrite</text>
+  <text x="394" y="224" fill="#336C33" font-family="Arial, sans-serif" font-size="18">timeField + metaField + value</text>
+  <text x="394" y="246" fill="#336C33" font-family="Arial, sans-serif" font-size="18">high write throughput</text>
+
+  <rect x="760" y="160" width="356" height="94" rx="12" fill="#FCEFD9" stroke="#E9CA90"/>
+  <text x="788" y="198" fill="#6D5200" font-family="Arial, sans-serif" font-size="23" font-weight="700">Time Series Collection</text>
+  <text x="788" y="224" fill="#7D6522" font-family="Arial, sans-serif" font-size="18">bucketed storage + compression</text>
+  <text x="788" y="246" fill="#7D6522" font-family="Arial, sans-serif" font-size="18">automatic internal bucket management</text>
+
+  <line x1="304" y1="207" x2="366" y2="207" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="366,207 352,199 352,215" fill="#9AA8BE"/>
+  <line x1="696" y1="207" x2="760" y2="207" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="760,207 746,199 746,215" fill="#9AA8BE"/>
+
+  <rect x="84" y="304" width="1032" height="230" rx="14" fill="#FFFFFF" stroke="#D5DBE7"/>
+  <text x="118" y="346" fill="#2A3B57" font-family="Arial, sans-serif" font-size="26" font-weight="700">Read and retention path</text>
+
+  <rect x="118" y="376" width="298" height="66" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="140" y="404" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">Indexed filters</text>
+  <text x="140" y="426" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">meta + time range</text>
+
+  <rect x="450" y="376" width="298" height="66" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="472" y="404" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">Aggregation pipeline</text>
+  <text x="472" y="426" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">$match + $group + $dateTrunc</text>
+
+  <rect x="782" y="376" width="298" height="66" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
+  <text x="804" y="404" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">Dashboard / API response</text>
+  <text x="804" y="426" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">downsampled time windows</text>
+
+  <line x1="416" y1="409" x2="450" y2="409" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="450,409 438,402 438,416" fill="#9AA8BE"/>
+  <line x1="748" y1="409" x2="782" y2="409" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="782,409 770,402 770,416" fill="#9AA8BE"/>
+
+  <rect x="118" y="464" width="962" height="48" rx="10" fill="#F5F7FC" stroke="#D5DBE7"/>
+  <text x="142" y="494" fill="#5E6E86" font-family="Arial, sans-serif" font-size="19">TTL on the time field automatically expires old measurements and keeps storage bounded.</text>
+</svg>

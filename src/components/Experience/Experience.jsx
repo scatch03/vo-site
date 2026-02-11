@@ -8,7 +8,7 @@ const Experience = () => {
     return (
     <section className={cn(styles, 'experience')}>
             <h3 className={cn(styles, 'experience__title')}>Work History</h3>
-            <p className={cn(styles, 'experience__description')}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias perferendis explicabo, corrupti tempora maiores quaerat odit voluptas recusandae totam doloribus.</p>
+            <p className={cn(styles, 'experience__description')}>My work history reflects long-term delivery across product evolution, from core feature development to architecture, scaling, and production ownership in high-load systems.</p>
             <div className={cn(styles, 'experience__list')}>   
               <div className={cn(styles, 'experience__card')}>
                 <div className={cn(styles, 'experience__institution')}>

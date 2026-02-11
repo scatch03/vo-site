@@ -22,7 +22,7 @@ const Hero = () => {
                 <span className={cn(styles, 'hero__title-accent')}>Software</span> Developer
               </h1>
               <div className={cn(styles, 'hero__subtitle')}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.      
+                with near 15 years of experience primarily in ad tech and marketing domains, specializing in RTB bidders and exchanges, high-load microservices, big data analytics and automatic AI-driven optimization solutions.
               </div>
               <button className={cn(styles, 'hero__button')}>
                 Get in touch <img src={arrowRight} alt="arrow right" />

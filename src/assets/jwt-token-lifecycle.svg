@@ -15,15 +15,16 @@
   <text x="642" y="232" fill="#7D6522" font-family="Arial, sans-serif" font-size="18">Expires in days</text>
 
   <rect x="872" y="170" width="242" height="82" rx="12" fill="#EFEAFC" stroke="#CABCF0"/>
-  <text x="904" y="206" fill="#4D3B80" font-family="Arial, sans-serif" font-size="22">Store securely</text>
-  <text x="904" y="232" fill="#5C4C8D" font-family="Arial, sans-serif" font-size="18">HttpOnly cookie preferred</text>
+  <text x="904" y="202" fill="#4D3B80" font-family="Arial, sans-serif" font-size="21">Store securely</text>
+  <text x="904" y="224" fill="#5C4C8D" font-family="Arial, sans-serif" font-size="16">HttpOnly cookie</text>
+  <text x="904" y="244" fill="#5C4C8D" font-family="Arial, sans-serif" font-size="16">preferred storage</text>
 
-  <line x1="306" y1="211" x2="348" y2="211" stroke="#9AA8BE" stroke-width="4" stroke-linecap="round"/>
-  <polygon points="348,211 330,200 330,222" fill="#9AA8BE"/>
-  <line x1="568" y1="211" x2="610" y2="211" stroke="#9AA8BE" stroke-width="4" stroke-linecap="round"/>
-  <polygon points="610,211 592,200 592,222" fill="#9AA8BE"/>
-  <line x1="830" y1="211" x2="872" y2="211" stroke="#9AA8BE" stroke-width="4" stroke-linecap="round"/>
-  <polygon points="872,211 854,200 854,222" fill="#9AA8BE"/>
+  <line x1="306" y1="211" x2="348" y2="211" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="348,211 336,204 336,218" fill="#9AA8BE"/>
+  <line x1="568" y1="211" x2="610" y2="211" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="610,211 598,204 598,218" fill="#9AA8BE"/>
+  <line x1="830" y1="211" x2="872" y2="211" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="872,211 860,204 860,218" fill="#9AA8BE"/>
 
   <rect x="86" y="304" width="1028" height="236" rx="14" fill="#FFFFFF" stroke="#D5DBE7"/>
   <text x="120" y="348" fill="#2A3B57" font-family="Arial, sans-serif" font-size="26" font-weight="700">Refresh flow when access token expires</text>
@@ -35,12 +36,14 @@
   <text x="478" y="418" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="20">POST /api/auth/refresh</text>
 
   <rect x="792" y="378" width="286" height="64" rx="10" fill="#EDF4FF" stroke="#BDD1EE"/>
-  <text x="814" y="418" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="20">Server issues new access token</text>
+  <text x="814" y="406" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">Server issues new</text>
+  <text x="814" y="426" fill="#2B4F7D" font-family="Arial, sans-serif" font-size="18">access token</text>
 
-  <line x1="406" y1="410" x2="456" y2="410" stroke="#9AA8BE" stroke-width="4" stroke-linecap="round"/>
-  <polygon points="456,410 438,399 438,421" fill="#9AA8BE"/>
-  <line x1="742" y1="410" x2="792" y2="410" stroke="#9AA8BE" stroke-width="4" stroke-linecap="round"/>
-  <polygon points="792,410 774,399 774,421" fill="#9AA8BE"/>
+  <line x1="406" y1="410" x2="456" y2="410" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="456,410 442,402 442,418" fill="#9AA8BE"/>
+  <line x1="742" y1="410" x2="792" y2="410" stroke="#9AA8BE" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="792,410 778,402 778,418" fill="#9AA8BE"/>
 
-  <text x="120" y="486" fill="#5E6E86" font-family="Arial, sans-serif" font-size="20">Rotate refresh tokens, revoke on logout, and keep access tokens short-lived.</text>
+  <text x="120" y="484" fill="#5E6E86" font-family="Arial, sans-serif" font-size="18">Rotate refresh tokens, revoke on logout, and keep access tokens short-lived.</text>
+  <text x="120" y="506" fill="#5E6E86" font-family="Arial, sans-serif" font-size="18">This limits exposure if an access token is leaked.</text>
 </svg>

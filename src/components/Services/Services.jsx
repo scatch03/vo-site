@@ -16,32 +16,32 @@ const Services = () => {
             <div className={cn(styles, 'services__grid')}>
               <div className={cn(styles, 'services__card')}>
                 <img className={cn(styles, 'services__image')} src={coding} alt="Development" />
-                <h4 className={cn(styles, 'services__card-title')}>Web Development</h4>
+                <h4 className={cn(styles, 'services__card-title')}>Web Site Development</h4>
                 <p className={cn(styles, 'services__card-text')}>Sites, Landing Pages, Blogs, E-Commerce</p>
               </div>
               <div className={cn(styles, 'services__card')}>
                 <img className={cn(styles, 'services__image')} src={illustration} alt="Design" />
-                <h4 className={cn(styles, 'services__card-title')}>UI/UX Design</h4>
+                <h4 className={cn(styles, 'services__card-title')}>Web Application Development</h4>
                 <p className={cn(styles, 'services__card-text')}>Websites, Mobile Apps</p>
               </div>
               <div className={cn(styles, 'services__card')}>
                 <img className={cn(styles, 'services__image')} src={microphone} alt="Design" />
-                <h4 className={cn(styles, 'services__card-title')}>Sound Design</h4>
+                <h4 className={cn(styles, 'services__card-title')}>Backend Development And Optimization</h4>
                 <p className={cn(styles, 'services__card-text')}>Voice Overs, Beat Making</p>
               </div>
               <div className={cn(styles, 'services__card')}>
                 <img className={cn(styles, 'services__image')} src={gamedevelopment} alt="Design" />
-                <h4 className={cn(styles, 'services__card-title')}>Game Design</h4>
+                <h4 className={cn(styles, 'services__card-title')}>Database Develoment And Query Optimization</h4>
                 <p className={cn(styles, 'services__card-text')}>Character Design, Props & Objects</p>
               </div>
               <div className={cn(styles, 'services__card')}>
                 <img className={cn(styles, 'services__image')} src={photographer} alt="Design" />
-                <h4 className={cn(styles, 'services__card-title')}>Photography</h4>
+                <h4 className={cn(styles, 'services__card-title')}>AI/ML Develoment</h4>
                 <p className={cn(styles, 'services__card-text')}>Portraits, Product Photography</p>
               </div>
               <div className={cn(styles, 'services__card')}>
                 <img className={cn(styles, 'services__image')} src={ads} alt="Design" />
-                <h4 className={cn(styles, 'services__card-title')}>Advertising</h4>
+                <h4 className={cn(styles, 'services__card-title')}>Data Science Research</h4>
                 <p className={cn(styles, 'services__card-text')}>Ads on Instagram, Facebook and TikTok</p>
               </div>
             </div>

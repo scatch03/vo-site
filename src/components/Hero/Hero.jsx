@@ -24,9 +24,9 @@ const Hero = () => {
               <div className={cn(styles, 'hero__subtitle')}>
                 with near 15 years of experience primarily in ad tech and marketing domains, specializing in RTB bidders and exchanges, high-load microservices, big data analytics and automatic AI-driven optimization solutions.
               </div>
-              <button className={cn(styles, 'hero__button')}>
+              <a className={cn(styles, 'hero__button')} href="#leave-message">
                 Get in touch <img src={arrowRight} alt="arrow right" />
-              </button>
+              </a>
             </div>
             <img className={cn(styles, 'hero__image')} src={photo} alt="Developer photo" />
         </header>

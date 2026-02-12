@@ -9,7 +9,7 @@ import { cn } from '../../utils/cn';
 const Contact = () => {
     return (
         <section id='contacts' className={cn(styles, 'contact')}>
-                    <div className={cn(styles, 'contact__form-container')}>
+                    <div id='leave-message' className={cn(styles, 'contact__form-container')}>
                       <h2 className={cn(styles, 'contact__title')}>Leave a message</h2>
                       <form className={cn(styles, 'contact__form')}>
                         <label htmlFor="name">Your Full Name ( Required )</label>
@@ -53,15 +53,15 @@ const Contact = () => {
                         <div className={cn(styles, 'contact__info')}>
                           <div className={cn(styles, 'contact__info-line')}>
                             <div>Email:</div>
-                            <div>youremail@gmail.com</div>
+                            <div>olexandrvorona@gmail.com</div>
                           </div>
                           <div className={cn(styles, 'contact__info-line')}>
-                            <div>Skype:</div>
-                            <div>@yourusername</div>
+                            <div>WhatsApp:</div>
+                            <div>+380992713289</div>
                           </div>
                           <div className={cn(styles, 'contact__info-line')}>
                             <div>Telegram:</div>
-                            <div>@yourusername</div>
+                            <div>@ii_jochi</div>
                           </div>
                         </div>
                       </div>
@@ -71,16 +71,12 @@ const Contact = () => {
                         </div>
                         <div className={cn(styles, 'contact__info')}>
                           <div className={cn(styles, 'contact__info-line')}>
-                            <div>Support Services:</div>
-                            <div>15369</div>
-                          </div>
-                          <div className={cn(styles, 'contact__info-line')}>
                             <div>Office:</div>
-                            <div>+58 (021)356 587 235</div>
+                            <div>+421 918131912</div>
                           </div>
                           <div className={cn(styles, 'contact__info-line')}>
                             <div>Personal:</div>
-                            <div>+58 (021)356 587 235</div>
+                            <div>+380992713289</div>
                           </div>
                         </div>
                       </div>

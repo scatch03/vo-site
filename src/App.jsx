@@ -120,27 +120,27 @@ function App() {
         <h5 className={cn(styles, 'profile-sidebar__job')}>Software Developer</h5>
         <div className={cn(styles, 'profile-sidebar__contacts')}>
           <div className={cn(styles, 'profile-sidebar__contact-item')}>
-            <a href='#'>
+            <a href='https://www.instagram.com/via.peregrina' target='_blank' rel='noopener noreferrer'>
               <img className={cn(styles, 'profile-sidebar__contact-icon')} src={instagram} alt="Instagram" />
             </a>
           </div>
           <div className={cn(styles, 'profile-sidebar__contact-item')}>
-            <a href='#'>
+            <a href='https://t.me/ii_jochi' target='_blank' rel='noopener noreferrer'>
               <img className={cn(styles, 'profile-sidebar__contact-icon')} src={telegram} alt="Telegram" />
             </a>
           </div>
           <div className={cn(styles, 'profile-sidebar__contact-item')}>
-            <a href='#'>
+            <a href='https://www.linkedin.com/in/oleksandr-vorona-51906b234/' target='_blank' rel='noopener noreferrer'>
               <img className={cn(styles, 'profile-sidebar__contact-icon')} src={linkedin} alt="LinkedIn" />
             </a>
           </div>
           <div className={cn(styles, 'profile-sidebar__contact-item')}>
-            <a href='#'>
+            <a href='https://wa.me/380992713289' target='_blank' rel='noopener noreferrer'>
               <img className={cn(styles, 'profile-sidebar__contact-icon')} src={whatsapp} alt="WhatsApp" />
             </a>
           </div>
           <div className={cn(styles, 'profile-sidebar__contact-item')}>
-            <a href='#'>
+            <a href='mailto:olexandrvorona@gmail.com'>
               <img className={cn(styles, 'profile-sidebar__contact-icon')} src={email} alt="Email" />
             </a>
           </div>

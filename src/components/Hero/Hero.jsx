@@ -33,7 +33,7 @@ const Hero = () => {
 
       const timerId = window.setTimeout(() => {
         setIsAccentRevealDone(true);
-      }, 180);
+      }, 1000);
 
       return () => {
         window.clearTimeout(timerId);

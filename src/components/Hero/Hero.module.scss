@@ -42,35 +42,32 @@
 
 .hero__title-accent {
   color: #000;
-  background-image: linear-gradient(rgba(255, 180, 0, 0.42), rgba(255, 180, 0, 0.42));
-  background-repeat: no-repeat;
-  background-position: 0 88%;
-  background-size: 0% 76%;
+  background-color: transparent;
 }
 
 .hero__title-accent--selected {
-  animation: hero-title-accent-select 900ms ease forwards;
+  animation: hero-title-accent-select 840ms ease forwards;
 }
 
 @keyframes hero-title-accent-select {
-  0% {
+  0%, 17% {
     color: #000;
-    background-size: 0% 76%;
+    background-color: transparent;
   }
 
-  35% {
+  18% {
     color: #000;
-    background-size: 100% 76%;
+    background-color: rgba(47, 111, 235, 0.38);
   }
 
-  70% {
-    color: #000;
-    background-size: 100% 76%;
+  24%, 68% {
+    color: #fff;
+    background-color: #2f6feb;
   }
 
   100% {
     color: var(--accent);
-    background-size: 0% 76%;
+    background-color: transparent;
   }
 }
 

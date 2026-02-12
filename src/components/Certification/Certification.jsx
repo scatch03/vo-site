@@ -14,7 +14,9 @@ const Certification = () => {
               <div className={cn(styles, 'certification__card')}>
                 <div className={cn(styles, 'certification__institution')}>
                   <div className={cn(styles, 'certification__name')}>
-                    Oracle Certified Java SE8 Associate 
+                    <a href="https://www.credly.com/badges/fb8996b1-68db-4870-9529-6ad759509b1f" target="_blank" rel="noopener noreferrer">
+                      Oracle Certified Java SE8 Associate
+                    </a>
                     <img className={cn(styles, 'certification__logo')} src={oca} alt='OCA Logo' />
                   </div> 
                 </div>

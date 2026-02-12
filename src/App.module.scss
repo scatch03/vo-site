@@ -237,6 +237,10 @@
   filter: brightness(0) invert(1);
 }
 
+:global(body.dark-theme) .profile-sidebar__contact-item:hover {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.45);
+}
+
 @media (max-width: 1440px) {
   .page-layout--three-column {
     grid-template-columns: minmax(280px, 3fr) minmax(0, 9fr) minmax(60px, 1fr);

@@ -42,9 +42,19 @@ const Hero = () => {
 
     const typedTitle = FULL_TITLE.slice(0, typedChars);
     const [typedFirstLine = '', typedSecondLine = ''] = typedTitle.split('\n');
-    const typedAccent = typedSecondLine.slice(0, Math.min(typedSecondLine.length, ACCENT_WORD.length));
-    const typedSecondLineRest = typedSecondLine.slice(typedAccent.length);
     const hasSecondLineStarted = typedTitle.includes('\n');
+    const secondLineTailMatch = typedSecondLine.match(/(\S+)\s*$/);
+    const secondLineTailStartIndex = secondLineTailMatch?.index ?? typedSecondLine.length;
+    const secondLineHead = typedSecondLine.slice(0, secondLineTailStartIndex);
+    const secondLineTail = typedSecondLine.slice(secondLineTailStartIndex);
+    const accentHead = secondLineHead.slice(0, Math.min(secondLineHead.length, ACCENT_WORD.length));
+    const normalHead = secondLineHead.slice(accentHead.length);
+    const accentTailLength = Math.max(
+      0,
+      Math.min(secondLineTail.length, ACCENT_WORD.length - accentHead.length),
+    );
+    const accentTail = secondLineTail.slice(0, accentTailLength);
+    const normalTail = secondLineTail.slice(accentTail.length);
     const typedAccentClassName = cn(
       styles,
       `hero__title-accent${isAccentRevealDone ? ' hero__title-accent--selected' : ''}`,
@@ -65,18 +75,27 @@ const Hero = () => {
                 <span className={cn(styles, 'hero__title-reserve')} aria-hidden="true">
                   I&apos;m Oleksandr Vorona
                   <br />
-                  <span className={cn(styles, 'hero__title-accent')}>Software</span> Developer
+                  <span className={cn(styles, 'hero__title-accent')}>Software</span>{' '}
+                  <span className={cn(styles, 'hero__title-tail-nowrap')}>
+                    Developer
+                    <span className={cn(styles, 'hero__cursor hero__cursor--reserve')} aria-hidden="true">|</span>
+                  </span>
                 </span>
                 <span className={cn(styles, 'hero__title-typed')} aria-hidden="true">
                   {typedFirstLine}
-                  {hasSecondLineStarted && <br />}
+                  {!hasSecondLineStarted && <span className={cn(styles, 'hero__cursor')} aria-hidden="true">|</span>}
                   {hasSecondLineStarted && (
                     <>
-                      <span className={typedAccentClassName}>{typedAccent}</span>
-                      {typedSecondLineRest}
+                      <br />
+                      {accentHead && <span className={typedAccentClassName}>{accentHead}</span>}
+                      {normalHead}
+                      <span className={cn(styles, 'hero__title-tail-nowrap')}>
+                        {accentTail && <span className={typedAccentClassName}>{accentTail}</span>}
+                        {normalTail}
+                        <span className={cn(styles, 'hero__cursor')} aria-hidden="true">|</span>
+                      </span>
                     </>
                   )}
-                  <span className={cn(styles, 'hero__cursor')} aria-hidden="true">|</span>
                 </span>
               </h1>
               <div className={cn(styles, 'hero__subtitle')}>

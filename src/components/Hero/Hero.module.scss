@@ -40,6 +40,12 @@
   display: inline-block;
 }
 
+.hero__title-tail-nowrap {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
 .hero__title-accent {
   color: #000;
   background-color: transparent;
@@ -79,6 +85,11 @@
   font-weight: 900;
   line-height: 1;
   animation: hero-cursor-blink 1s step-end infinite;
+}
+
+.hero__cursor--reserve {
+  visibility: hidden;
+  animation: none;
 }
 
 :global(body.dark-theme) .hero__cursor {

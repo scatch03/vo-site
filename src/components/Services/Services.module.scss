@@ -38,10 +38,24 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.services__image {
+.services__icon {
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services__icon-svg {
   width: 68px;
   height: 68px;
-  margin: 0 auto 25px;
+  color: var(--accent);
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.35;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .services__card-title {

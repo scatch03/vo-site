@@ -7,6 +7,7 @@ import { cn } from '../../utils/cn';
 
 const FULL_TITLE = "I'm Oleksandr Vorona\nSoftware Developer";
 const ACCENT_WORD = 'Software';
+const FIRST_LINE_LENGTH = FULL_TITLE.indexOf('\n');
 
 const Hero = () => {
     const [typedChars, setTypedChars] = useState(0);
@@ -17,9 +18,11 @@ const Hero = () => {
         return undefined;
       }
 
+      const nextCharDelay = typedChars === FIRST_LINE_LENGTH ? 1700 : 75;
+
       const timerId = window.setTimeout(() => {
         setTypedChars((previous) => Math.min(previous + 1, FULL_TITLE.length));
-      }, 75);
+      }, nextCharDelay);
 
       return () => {
         window.clearTimeout(timerId);

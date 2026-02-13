@@ -54,7 +54,9 @@ const Certification = () => {
                 </div>
                 <div className={cn(styles, 'certification__text')}>
                   <p className={cn(styles, 'certification__text-description')}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eaque itaque numquam commodi saepe possimus debitis laboriosam laudantium delectus. Sit debitis illum laborum dignissimos officiis! 
+                    Course covers practical frontend fundamentals including semantic HTML, modern CSS, JavaScript basics, responsive layout techniques, and cross-browser compatibility.
+                    It includes hands-on work with DOM interaction, form validation, API integration, and Git-based workflow for team collaboration.
+                    Final assignments focus on building production-like web interfaces with clean structure, maintainable styles, and reusable UI components.
                   </p>
                 </div>
               </div>
@@ -69,7 +71,9 @@ const Certification = () => {
                 </div>
                 <div className={cn(styles, 'certification__text')}>
                   <p className={cn(styles, 'certification__text-description')}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eaque itaque numquam commodi saepe possimus debitis laboriosam laudantium delectus. Sit debitis illum laborum dignissimos officiis! 
+                    Course focuses on building modern React applications with functional components, hooks, component composition, and reusable architecture patterns.
+                    It covers routing, state management, API data flow, form handling, and performance optimization for scalable front-end applications.
+                    Practical tasks include implementing real-world features, structuring project modules, and preparing React apps for production deployment.
                   </p>
                 </div>
               </div>

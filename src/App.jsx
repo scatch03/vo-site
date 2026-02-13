@@ -314,10 +314,14 @@ function App() {
             </div>
         </div>
         <div className={cn(styles, 'profile-sidebar__cv')}>
-          <button className={cn(styles, 'profile-sidebar__cv-button')}>
+          <a
+            className={cn(styles, 'profile-sidebar__cv-button')}
+            href="/sample-cv.pdf"
+            download="Oleksandr_Vorona_CV_Sample.pdf"
+          >
             Download CV
             <img className={cn(styles, 'profile-sidebar__cv-icon')} src={downloadCv} alt="Download CV" />
-          </button>
+          </a>
        </div>
        <div className={cn(styles, 'profile-sidebar__placeholder')}></div>
       </aside>

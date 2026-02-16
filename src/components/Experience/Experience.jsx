@@ -25,7 +25,7 @@ const Experience = () => {
                 <div className={cn(styles, 'experience__text')}>
                   <h5 className={cn(styles, 'experience__text-title')}>Senior Software Developer</h5>
                   <p className={cn(styles, 'experience__text-description')}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, obcaecati quasi possimus dignissimos praesentium quis totam odio voluptates eos facere similique libero, iure repudiandae magni pariatur qui autem iste. Sit.
+                    Led design and delivery of high-load backend services for ad-tech platforms, building reliable microservice APIs and optimizing SQL-heavy data flows for real-time bidding workloads. Improved throughput and latency by profiling hotspots, refactoring critical paths, and tuning database queries and indexing strategies for production-scale traffic. Worked across the full delivery cycle, from requirements and architecture to implementation, release, and post-production support, while aligning technical decisions with business priorities and delivery timelines.
                   </p>
                 </div>
               </div>
@@ -44,7 +44,7 @@ const Experience = () => {
                 <div className={cn(styles, 'experience__text')}>
                   <h5 className={cn(styles, 'experience__text-title')}>Development Team Lead</h5>
                   <p className={cn(styles, 'experience__text-description')}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, obcaecati quasi possimus dignissimos praesentium quis totam odio voluptates eos facere similique libero, iure repudiandae magni pariatur qui autem iste. Sit.
+                    Led a cross-functional team of 6 specialists, including 3 backend developers, 1 frontend developer, and 2 QA engineers, coordinating delivery from planning to release. Owned sprint execution, task prioritization, and technical direction, while improving collaboration between engineering and QA to reduce cycle time and increase release predictability. Mentored team members, supported architectural decisions, and maintained high quality standards through clear processes, code reviews, and delivery-focused communication.
                   </p>
                 </div>
               </div>
@@ -63,7 +63,7 @@ const Experience = () => {
                 <div className={cn(styles, 'experience__text')}>
                   <h5 className={cn(styles, 'experience__text-title')}>Principal Software Developer</h5>
                   <p className={cn(styles, 'experience__text-description')}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, obcaecati quasi possimus dignissimos praesentium quis totam odio voluptates eos facere similique libero, iure repudiandae magni pariatur qui autem iste. Sit.
+                    Architected and delivered core RTB platform capabilities under strict latency and throughput constraints, ensuring reliable behavior at high request volumes and burst traffic. Led development of AI-driven optimization components for bidding, pacing, and budget allocation, using real-time signals to improve campaign efficiency and decision quality. Drove end-to-end performance engineering across services and data pipelines, combining low-latency architecture, query tuning, and production observability to meet demanding SLA targets.
                   </p>
                 </div>
               </div>

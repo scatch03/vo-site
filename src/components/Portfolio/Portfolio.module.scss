@@ -37,6 +37,16 @@
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+.portfolio__image-link {
+  display: block;
+}
+
+.portfolio__image--framed-preview {
+  height: 100%;
+  aspect-ratio: 31 / 30;
+  object-fit: contain;
+}
+
 .portfolio__image:hover {
   cursor: pointer;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);

@@ -23,7 +23,7 @@ const Portfolio = () => {
         >
           <img
             src={greenshopPreview}
-            className={cn(styles, 'portfolio__image portfolio__image--framed-preview')}
+            className={cn(styles, 'portfolio__image portfolio__image--framed-preview portfolio__image--cover-preview')}
             alt='GreenShop Portfolio Preview'
           />
         </a>
@@ -35,7 +35,7 @@ const Portfolio = () => {
         >
           <img
             src={sitePreview}
-            className={cn(styles, 'portfolio__image portfolio__image--framed-preview')}
+            className={cn(styles, 'portfolio__image portfolio__image--framed-preview portfolio__image--cover-preview')}
             alt='Education Site Portfolio Preview'
           />
         </a>

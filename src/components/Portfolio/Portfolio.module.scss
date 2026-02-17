@@ -47,6 +47,10 @@
   object-fit: contain;
 }
 
+.portfolio__image--cover-preview {
+  object-fit: cover;
+}
+
 .portfolio__image:hover {
   cursor: pointer;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);

@@ -2,7 +2,7 @@ import greenshopPreview from '../../assets/greenshop-preview.png';
 import sitePreview from '../../assets/site-preview.png';
 import legalPreview from '../../assets/legal-preview.png';
 import taskboardPreview from '../../assets/taskboard-preview.png';
-import p5 from '../../assets/p5.jpg';
+import bidderPreview from '../../assets/bidder-preview.png';
 import p6 from '../../assets/p6.jpg';
 import styles from './Portfolio.module.scss';
 import { cn } from '../../utils/cn';
@@ -59,7 +59,7 @@ const Portfolio = () => {
             alt='Task Board Portfolio Preview'
           />
         </a>
-        <img src={p5} className={cn(styles, 'portfolio__image')} alt="Portfolio Icon" />
+        <img src={bidderPreview} className={cn(styles, 'portfolio__image')} alt='Bidder UI Portfolio Preview' />
         <img src={p6} className={cn(styles, 'portfolio__image')} alt="Portfolio Icon" />
       </div>
     </section>

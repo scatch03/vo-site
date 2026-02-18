@@ -1,7 +1,7 @@
 import greenshopPreview from '../../assets/greenshop-preview.png';
 import sitePreview from '../../assets/site-preview.png';
-import p3 from '../../assets/p3.jpg';
-import p4 from '../../assets/p4.jpg';
+import legalPreview from '../../assets/legal-preview.png';
+import taskboardPreview from '../../assets/taskboard-preview.png';
 import p5 from '../../assets/p5.jpg';
 import p6 from '../../assets/p6.jpg';
 import styles from './Portfolio.module.scss';
@@ -39,8 +39,26 @@ const Portfolio = () => {
             alt='Education Site Portfolio Preview'
           />
         </a>
-        <img src={p3} className={cn(styles, 'portfolio__image')} alt="Portfolio Icon" />
-        <img src={p4} className={cn(styles, 'portfolio__image')} alt="Portfolio Icon" />
+        <a
+          className={cn(styles, 'portfolio__image-link')}
+          href='http://129.212.252.99'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <img src={legalPreview} className={cn(styles, 'portfolio__image')} alt='Legal Website Portfolio Preview' />
+        </a>
+        <a
+          className={cn(styles, 'portfolio__image-link')}
+          href='http://129.212.252.99:8080'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <img
+            src={taskboardPreview}
+            className={cn(styles, 'portfolio__image portfolio__image--framed-preview portfolio__image--cover-preview')}
+            alt='Task Board Portfolio Preview'
+          />
+        </a>
         <img src={p5} className={cn(styles, 'portfolio__image')} alt="Portfolio Icon" />
         <img src={p6} className={cn(styles, 'portfolio__image')} alt="Portfolio Icon" />
       </div>

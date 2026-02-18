@@ -41,6 +41,13 @@
   display: block;
 }
 
+.portfolio__image-button {
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
 .portfolio__image--framed-preview {
   height: 100%;
   aspect-ratio: 31 / 30;
@@ -59,6 +66,40 @@
 
 :global(body.dark-theme) .portfolio__image:hover {
   box-shadow: 0 0 24px rgba(255, 255, 255, 0.45);
+}
+
+.portfolio__lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background-color: rgba(12, 15, 21, 0.78);
+}
+
+.portfolio__lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(20, 24, 33, 0.88);
+  color: #fff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.portfolio__lightbox-image {
+  width: min(1240px, 94vw);
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.35);
 }
 
 @media (max-width: 1280px) {

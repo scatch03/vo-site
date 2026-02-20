@@ -79,7 +79,7 @@ const Portfolio = () => {
         </a>
         <a
           className={cn(styles, 'portfolio__image-link')}
-          href='http://129.212.252.99'
+          href='http://oleksandrvorona.tech:8081'
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -87,7 +87,7 @@ const Portfolio = () => {
         </a>
         <a
           className={cn(styles, 'portfolio__image-link')}
-          href='http://129.212.252.99:8080'
+          href='http://oleksandrvorona.tech:8080'
           target='_blank'
           rel='noopener noreferrer'
         >

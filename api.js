@@ -1,9 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import nodemailer from 'nodemailer';
-import dns from 'node:dns/promises';
-import net from 'node:net';
 
 dotenv.config();
 const env = globalThis.process?.env ?? {};
@@ -12,79 +9,127 @@ const app = express();
 const PORT = Number(env.PORT || 4000);
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 2;
-const SMTP_CONNECTION_TIMEOUT_MS = Number(env.SMTP_CONNECTION_TIMEOUT_MS || 15000);
-const SMTP_GREETING_TIMEOUT_MS = Number(env.SMTP_GREETING_TIMEOUT_MS || 10000);
-const SMTP_SOCKET_TIMEOUT_MS = Number(env.SMTP_SOCKET_TIMEOUT_MS || 20000);
-const SMTP_FORCE_IPV4 = env.SMTP_FORCE_IPV4 !== 'false';
-const SMTP_SERVER_HOST = env.SMTP_HOST || 'smtp.gmail.com';
+const BREVO_API_BASE_URL = env.BREVO_API_BASE_URL || 'https://api.brevo.com/v3';
+const BREVO_API_KEY = env.BREVO_API_KEY || '';
+const BREVO_SENDER_EMAIL = env.BREVO_SENDER_EMAIL || '';
+const BREVO_SENDER_NAME = env.BREVO_SENDER_NAME || 'Portfolio Contact';
+const CONTACT_TO_EMAIL = env.CONTACT_TO || '';
+const CONTACT_TO_NAME = env.CONTACT_TO_NAME || 'Portfolio Owner';
 const successfulSendsByIp = new Map();
 
 app.use(cors({ origin: env.CLIENT_ORIGIN || 'http://localhost:5173' }));
 app.use(express.json());
 
-const resolveSmtpHost = async () => {
-  if (!SMTP_FORCE_IPV4 || !SMTP_SERVER_HOST || net.isIP(SMTP_SERVER_HOST)) {
-    return SMTP_SERVER_HOST;
-  }
-
-  try {
-    const ipv4Addresses = await dns.resolve4(SMTP_SERVER_HOST);
-    if (ipv4Addresses.length > 0) {
-      console.log(`[SMTP] Resolved ${SMTP_SERVER_HOST} to IPv4 ${ipv4Addresses[0]}`);
-      return ipv4Addresses[0];
-    }
-  } catch (err) {
-    console.error('[SMTP] Failed to resolve IPv4 address, using hostname', {
-      host: SMTP_SERVER_HOST,
-      message: err?.message,
-      code: err?.code,
-    });
-  }
-
-  return SMTP_SERVER_HOST;
+const getMissingBrevoConfig = () => {
+  const missing = [];
+  if (!BREVO_API_KEY) missing.push('BREVO_API_KEY');
+  if (!BREVO_SENDER_EMAIL) missing.push('BREVO_SENDER_EMAIL');
+  if (!CONTACT_TO_EMAIL) missing.push('CONTACT_TO');
+  return missing;
 };
 
-const smtpTransportHost = await resolveSmtpHost();
-
-const transporter = nodemailer.createTransport({
-  host: smtpTransportHost,
-  port: Number(env.SMTP_PORT || 587),
-  secure: env.SMTP_SECURE === 'true',
-  family: 4,
-  connectionTimeout: SMTP_CONNECTION_TIMEOUT_MS,
-  greetingTimeout: SMTP_GREETING_TIMEOUT_MS,
-  socketTimeout: SMTP_SOCKET_TIMEOUT_MS,
-  tls: {
-    servername: SMTP_SERVER_HOST,
-  },
-  auth: {
-    user: env.SMTP_USER,
-    pass: env.SMTP_PASS,
-  },
-});
-
-const logSmtpError = (context, err) => {
-  console.error(`[SMTP] ${context}`, {
+const logBrevoError = (context, err) => {
+  console.error(`[BREVO] ${context}`, {
     message: err?.message,
     code: err?.code,
-    command: err?.command,
-    responseCode: err?.responseCode,
-    response: err?.response,
+    status: err?.status,
+    responseBody: err?.responseBody,
+    missing: err?.missing,
   });
 };
 
-const verifySmtpConnection = async () => {
+const parseResponseBody = async (response) => {
+  const bodyText = await response.text();
+  if (!bodyText) return null;
+
   try {
-    await transporter.verify();
-    console.log('[SMTP] Connection verified');
-  } catch (err) {
-    logSmtpError('Connection verification failed', err);
+    return JSON.parse(bodyText);
+  } catch {
+    return bodyText;
   }
 };
 
-app.get('/api/health', (_req, res) => {
-  res.json({ ok: true });
+const buildBrevoError = (message, extra = {}) => Object.assign(new Error(message), extra);
+
+const getBrevoHeaders = () => ({
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+  'api-key': BREVO_API_KEY,
 });
+
+const sendMailViaBrevo = async ({ name, email, subject, message }) => {
+  const missing = getMissingBrevoConfig();
+  if (missing.length > 0) {
+    throw buildBrevoError('Brevo is not configured', { code: 'E_BREVO_CONFIG', missing });
+  }
+
+  const payload = {
+    sender: {
+      email: BREVO_SENDER_EMAIL,
+      name: BREVO_SENDER_NAME,
+    },
+    to: [
+      {
+        email: CONTACT_TO_EMAIL,
+        name: CONTACT_TO_NAME,
+      },
+    ],
+    replyTo: {
+      email,
+      name,
+    },
+    subject: subject ? `[Portfolio] ${subject}` : '[Portfolio] New message',
+    textContent: `Name: ${name}\nEmail: ${email}\n\n${message}`,
+  };
+
+  const response = await fetch(`${BREVO_API_BASE_URL}/smtp/email`, {
+    method: 'POST',
+    headers: getBrevoHeaders(),
+    body: JSON.stringify(payload),
+  });
+
+  const responseBody = await parseResponseBody(response);
+  if (!response.ok) {
+    throw buildBrevoError('Brevo send email request failed', {
+      code: 'E_BREVO_HTTP',
+      status: response.status,
+      responseBody,
+    });
+  }
+
+  return responseBody;
+};
+
+const verifyBrevoConnection = async () => {
+  const missing = getMissingBrevoConfig();
+  if (missing.length > 0) {
+    logBrevoError('Skipping verification, missing configuration', { missing });
+    return;
+  }
+
+  try {
+    const response = await fetch(`${BREVO_API_BASE_URL}/account`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'api-key': BREVO_API_KEY,
+      },
+    });
+
+    const responseBody = await parseResponseBody(response);
+    if (!response.ok) {
+      throw buildBrevoError('Brevo account verification failed', {
+        code: 'E_BREVO_VERIFY',
+        status: response.status,
+        responseBody,
+      });
+    }
+
+    console.log('[BREVO] Connection verified');
+  } catch (err) {
+    logBrevoError('Connection verification failed', err);
+  }
+};
 
 const getClientIp = (req) => {
   const forwardedFor = req.headers['x-forwarded-for'];
@@ -106,6 +151,10 @@ const getRecentSuccessfulSends = (ip, now) => {
 
   return recentHistory;
 };
+
+app.get('/api/health', (_req, res) => {
+  res.json({ ok: true });
+});
 
 app.post('/api/contact', async (req, res) => {
   try {
@@ -133,24 +182,21 @@ app.post('/api/contact', async (req, res) => {
       return res.status(400).json({ ok: false, error: 'invalid email' });
     }
 
-    await transporter.sendMail({
-      from: env.SMTP_FROM || env.SMTP_USER,
-      to: env.CONTACT_TO || env.SMTP_USER,
-      replyTo: email,
-      subject: subject ? `[Portfolio] ${subject}` : '[Portfolio] New message',
-      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-    });
+    await sendMailViaBrevo({ name, email, subject, message });
 
     successfulSendsByIp.set(clientIp, [...recentSuccessfulSends, Date.now()]);
 
     return res.json({ ok: true });
   } catch (err) {
-    logSmtpError('Send mail failed', err);
+    logBrevoError('Send mail failed', err);
+    if (err?.code === 'E_BREVO_CONFIG') {
+      return res.status(500).json({ ok: false, error: 'email service is not configured' });
+    }
     return res.status(500).json({ ok: false, error: 'failed to send message' });
   }
 });
 
 app.listen(PORT, () => {
   console.log(`API listening on :${PORT}`);
-  verifySmtpConnection();
+  verifyBrevoConnection();
 });

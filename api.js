@@ -10,6 +10,9 @@ const app = express();
 const PORT = Number(env.PORT || 4000);
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 2;
+const SMTP_CONNECTION_TIMEOUT_MS = Number(env.SMTP_CONNECTION_TIMEOUT_MS || 15000);
+const SMTP_GREETING_TIMEOUT_MS = Number(env.SMTP_GREETING_TIMEOUT_MS || 10000);
+const SMTP_SOCKET_TIMEOUT_MS = Number(env.SMTP_SOCKET_TIMEOUT_MS || 20000);
 const successfulSendsByIp = new Map();
 
 app.use(cors({ origin: env.CLIENT_ORIGIN || 'http://localhost:5173' }));
@@ -19,11 +22,34 @@ const transporter = nodemailer.createTransport({
   host: env.SMTP_HOST,
   port: Number(env.SMTP_PORT || 587),
   secure: env.SMTP_SECURE === 'true',
+  family: 4,
+  connectionTimeout: SMTP_CONNECTION_TIMEOUT_MS,
+  greetingTimeout: SMTP_GREETING_TIMEOUT_MS,
+  socketTimeout: SMTP_SOCKET_TIMEOUT_MS,
   auth: {
     user: env.SMTP_USER,
     pass: env.SMTP_PASS,
   },
 });
+
+const logSmtpError = (context, err) => {
+  console.error(`[SMTP] ${context}`, {
+    message: err?.message,
+    code: err?.code,
+    command: err?.command,
+    responseCode: err?.responseCode,
+    response: err?.response,
+  });
+};
+
+const verifySmtpConnection = async () => {
+  try {
+    await transporter.verify();
+    console.log('[SMTP] Connection verified');
+  } catch (err) {
+    logSmtpError('Connection verification failed', err);
+  }
+};
 
 app.get('/api/health', (_req, res) => {
   res.json({ ok: true });
@@ -88,11 +114,12 @@ app.post('/api/contact', async (req, res) => {
 
     return res.json({ ok: true });
   } catch (err) {
-    console.error(err);
+    logSmtpError('Send mail failed', err);
     return res.status(500).json({ ok: false, error: 'failed to send message' });
   }
 });
 
 app.listen(PORT, () => {
   console.log(`API listening on :${PORT}`);
+  verifySmtpConnection();
 });

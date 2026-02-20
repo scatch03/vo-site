@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import star from '../../assets/star.svg';
 import testimonialsAvatar1 from '../../assets/s_khlivnenko.jpeg';
@@ -10,27 +11,39 @@ import { cn } from '../../utils/cn';
 
 const ClientsCarousel = () => {
   const recommendationsLink = 'https://www.linkedin.com/in/oleksandr-vorona-51906b234/details/recommendations/';
+  const getSlidesToShow = (width) => {
+    if (width >= 1350) return 3;
+    if (width >= 768) return 2;
+    return 1;
+  };
+
+  const [slidesToShow, setSlidesToShow] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 3;
+    }
+
+    return getSlidesToShow(window.innerWidth);
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSlidesToShow(getSlidesToShow(window.innerWidth));
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow,
     slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
   };
 
   const clientsTestimonials = [
@@ -70,7 +83,7 @@ const ClientsCarousel = () => {
 
   return (
     <div className={cn(styles, 'testimonials-carousel')}>
-      <Slider {...settings} className={cn(styles, 'testimonials-carousel__slider')}>
+      <Slider key={slidesToShow} {...settings} className={cn(styles, 'testimonials-carousel__slider')}>
         {clientsTestimonials.map(({ title, text, authorName, authorRole, authorAvatar, authorLinkedin }, index) => (
           <div key={`${authorName}-${index}`} className={cn(styles, 'testimonials-carousel__slide')}>
             <div className={cn(styles, 'testimonials__card')}>

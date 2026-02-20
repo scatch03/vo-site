@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import nodemailer from 'nodemailer';
+import dns from 'node:dns/promises';
+import net from 'node:net';
 
 dotenv.config();
 const env = globalThis.process?.env ?? {};
@@ -13,19 +15,48 @@ const RATE_LIMIT_MAX_REQUESTS = 2;
 const SMTP_CONNECTION_TIMEOUT_MS = Number(env.SMTP_CONNECTION_TIMEOUT_MS || 15000);
 const SMTP_GREETING_TIMEOUT_MS = Number(env.SMTP_GREETING_TIMEOUT_MS || 10000);
 const SMTP_SOCKET_TIMEOUT_MS = Number(env.SMTP_SOCKET_TIMEOUT_MS || 20000);
+const SMTP_FORCE_IPV4 = env.SMTP_FORCE_IPV4 !== 'false';
+const SMTP_SERVER_HOST = env.SMTP_HOST || 'smtp.gmail.com';
 const successfulSendsByIp = new Map();
 
 app.use(cors({ origin: env.CLIENT_ORIGIN || 'http://localhost:5173' }));
 app.use(express.json());
 
+const resolveSmtpHost = async () => {
+  if (!SMTP_FORCE_IPV4 || !SMTP_SERVER_HOST || net.isIP(SMTP_SERVER_HOST)) {
+    return SMTP_SERVER_HOST;
+  }
+
+  try {
+    const ipv4Addresses = await dns.resolve4(SMTP_SERVER_HOST);
+    if (ipv4Addresses.length > 0) {
+      console.log(`[SMTP] Resolved ${SMTP_SERVER_HOST} to IPv4 ${ipv4Addresses[0]}`);
+      return ipv4Addresses[0];
+    }
+  } catch (err) {
+    console.error('[SMTP] Failed to resolve IPv4 address, using hostname', {
+      host: SMTP_SERVER_HOST,
+      message: err?.message,
+      code: err?.code,
+    });
+  }
+
+  return SMTP_SERVER_HOST;
+};
+
+const smtpTransportHost = await resolveSmtpHost();
+
 const transporter = nodemailer.createTransport({
-  host: env.SMTP_HOST,
+  host: smtpTransportHost,
   port: Number(env.SMTP_PORT || 587),
   secure: env.SMTP_SECURE === 'true',
   family: 4,
   connectionTimeout: SMTP_CONNECTION_TIMEOUT_MS,
   greetingTimeout: SMTP_GREETING_TIMEOUT_MS,
   socketTimeout: SMTP_SOCKET_TIMEOUT_MS,
+  tls: {
+    servername: SMTP_SERVER_HOST,
+  },
   auth: {
     user: env.SMTP_USER,
     pass: env.SMTP_PASS,

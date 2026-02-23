@@ -1,0 +1,80 @@
+OLEKSANDR VORONA
+Principal Software Developer
+
+Bratislava, Slovak Republic
+Email: olexandrvorona@gmail.com
+Phone: +421 918131912 | +380992713289
+LinkedIn: https://www.linkedin.com/in/oleksandr-vorona-51906b234/
+Portfolio: http://oleksandrvorona.tech
+
+
+PROFESSIONAL SUMMARY
+Software engineer with nearly 15 years of experience designing and delivering high-load backend systems,
+primarily in ad tech and marketing platforms. Deep expertise in RTB bidders and exchanges, low-latency
+microservices, SQL optimization, and production performance engineering. Combines strong architecture and
+hands-on implementation skills with delivery ownership, cross-functional collaboration, and clear business
+focus.
+
+
+CORE SKILLS
+- Backend Engineering: Java, Spring Framework, Spring Boot, REST APIs, microservices, gRPC
+- Data & Storage: MySQL, PostgreSQL, SQLite, MongoDB, Redis, Memcached, HBase, Aerospike
+- Performance & Scale: Query tuning, indexing strategy, latency optimization, high-throughput design
+- Messaging & Infrastructure: Kafka, RabbitMQ, Docker, Docker Compose, AWS, DigitalOcean
+- Frontend & Full-Stack: JavaScript, TypeScript, React, Redux Toolkit, HTML, CSS
+- Additional: AI/ML integration, data science workflows, Git/GitHub/GitLab, Maven
+
+
+PROFESSIONAL EXPERIENCE
+EPOM RTB (https://epom.com/dsp)
+Principal Software Developer | Feb 2018 - Present
+- Architect and deliver core RTB platform capabilities under strict latency and throughput constraints.
+- Build and evolve AI-driven optimization components for bidding, pacing, and budget allocation.
+- Drive end-to-end performance engineering across services and data pipelines for reliable SLA compliance.
+- Lead design decisions for scalable backend systems supporting high request volumes and burst traffic.
+
+EPOM Ad Server (https://epom.com/ad-server)
+Development Team Lead | Feb 2017 - Feb 2018
+- Led a cross-functional team of 6 specialists: 3 backend developers, 1 frontend developer, and 2 QA engineers.
+- Owned sprint planning, prioritization, execution control, and release delivery quality.
+- Mentored engineers, coordinated QA collaboration, and improved delivery predictability and team throughput.
+- Maintained engineering standards through structured reviews, technical guidance, and clear processes.
+
+EPOM Ad Server (https://epom.com/ad-server)
+Senior Software Developer | Jan 2012 - Feb 2017
+- Designed and delivered high-load backend services and microservice APIs for ad-tech platforms.
+- Optimized SQL-heavy data flows and critical execution paths for real-time bidding workloads.
+- Improved system stability and runtime efficiency through profiling, refactoring, and indexing strategy updates.
+- Owned features through the full lifecycle: requirements, architecture, implementation, release, support.
+
+
+EDUCATION
+National Technical University of Ukraine "Kharkiv Polytechnic Institute"
+MSc, Software Engineering (with honors) | Sep 2023 - Dec 2024
+
+National Technical University of Ukraine "Igor Sikorsky Kyiv Polytechnic Institute"
+BSc, Data Science and Artificial Intelligence | Sep 2022 - Jun 2025
+
+Taras Shevchenko National University of Kyiv
+MSc, Radiophysics and Electronics (with honors) | Sep 2009 - Jun 2011
+
+Taras Shevchenko National University of Kyiv
+BSc, Applied Physics | Sep 2005 - Jun 2009
+
+Ukrainian Physics and Mathematics Lyceum (UPML)
+Certificate of Secondary Education | Sep 2002 - Jun 2005
+
+
+CERTIFICATIONS
+- Oracle Certified Java SE 8 Associate
+  https://www.credly.com/badges/fb8996b1-68db-4870-9529-6ad759509b1f
+- CCNA Routing & Switching
+- Front End Development (Hillel IT School)
+  https://certificate.ithillel.ua/view/28721746
+- React Application Development (Hillel IT School)
+  https://certificate.ithillel.ua/view/86345058
+
+
+LANGUAGES
+Ukrainian (native), Russian (fluent), English (professional), German (working proficiency),
+Slovak (working proficiency), Estonian (intermediate)

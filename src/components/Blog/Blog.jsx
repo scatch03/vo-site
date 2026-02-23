@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import asaw from '../../assets/asaw.png';
 import pgi from '../../assets/pgi.jpg';
@@ -10,26 +11,39 @@ import { cn } from '../../utils/cn';
 
 
 const Blog = () => {
+    const getSlidesToShow = (width) => {
+      if (width >= 1350) return 3;
+      if (width >= 768) return 2;
+      return 1;
+    };
+
+    const [slidesToShow, setSlidesToShow] = useState(() => {
+      if (typeof window === 'undefined') {
+        return 3;
+      }
+
+      return getSlidesToShow(window.innerWidth);
+    });
+
+    useEffect(() => {
+      const handleResize = () => {
+        setSlidesToShow(getSlidesToShow(window.innerWidth));
+      };
+
+      handleResize();
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+
     const settings = {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 3,
+      slidesToShow,
       slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 1280,
-          settings: {
-            slidesToShow: 2,
-          },
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-          },
-        },
-      ],
     };
 
     const blogPosts = [
@@ -70,7 +84,7 @@ const Blog = () => {
             <h3 className={cn(styles, 'blog__title')}>Blog</h3>
             <p className={cn(styles, 'blog__description')}>This blog shares hands-on insights from building scalable systems, solving backend bottlenecks, and delivering reliable software in real business environments.</p>
             <div className={cn(styles, 'blog__carousel')}>
-              <Slider {...settings} className={cn(styles, 'blog__slider')}>
+              <Slider key={slidesToShow} {...settings} className={cn(styles, 'blog__slider')}>
                 {blogPosts.map(({ image, title, text, href }) => (
                   <div key={href} className={cn(styles, 'blog__slide')}>
                     <article className={cn(styles, 'blog__item')}>

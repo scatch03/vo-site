@@ -31,38 +31,40 @@ function Navigation({ activeSection, isDarkTheme, onSelectSection, onToggleTheme
   };
 
   return (
-    <div className={cn(styles, 'side-nav')}>
-      <div className={cn(styles, 'side-nav__theme-switch')} onClick={onToggleTheme}>
-        <button
-          type="button"
-          className={cn(styles, 'side-nav__theme-button')}
-          aria-label={isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme'}
-        >
-          <img
-            className={cn(styles, `side-nav__theme-icon${isDarkTheme ? ' side-nav__theme-icon--active' : ''}`)}
-            src={contrast}
-            alt="Switch Theme"
-          />
-          <span className={cn(styles, 'side-nav__theme-tooltip')}>
-            {isDarkTheme ? 'Light mode' : 'Dark mode'}
-          </span>
-        </button>
-      </div>
-      <nav>
-        {navItems.map(({ sectionId, label, icon, alt }) => (
-          <a
-            key={sectionId}
-            href={`#${sectionId}`}
-            onClick={(event) => handleNavClick(event, sectionId)}
-            aria-current={activeSection === sectionId ? 'location' : undefined}
+    <div className={cn(styles, 'side-nav-column')}>
+      <div className={cn(styles, 'side-nav')}>
+        <div className={cn(styles, 'side-nav__theme-switch')} onClick={onToggleTheme}>
+          <button
+            type="button"
+            className={cn(styles, 'side-nav__theme-button')}
+            aria-label={isDarkTheme ? 'Switch to light theme' : 'Switch to dark theme'}
           >
-            <div className={cn(styles, `side-nav__item${activeSection === sectionId ? ' side-nav__item--active' : ''}`)}>
-              <span className={cn(styles, 'side-nav__tooltip')}>{label}</span>
-              <img className={cn(styles, 'side-nav__icon')} src={icon} alt={alt} />
-            </div>
-          </a>
-        ))}
-      </nav>
+            <img
+              className={cn(styles, `side-nav__theme-icon${isDarkTheme ? ' side-nav__theme-icon--active' : ''}`)}
+              src={contrast}
+              alt="Switch Theme"
+            />
+            <span className={cn(styles, 'side-nav__theme-tooltip')}>
+              {isDarkTheme ? 'Light mode' : 'Dark mode'}
+            </span>
+          </button>
+        </div>
+        <nav>
+          {navItems.map(({ sectionId, label, icon, alt }) => (
+            <a
+              key={sectionId}
+              href={`#${sectionId}`}
+              onClick={(event) => handleNavClick(event, sectionId)}
+              aria-current={activeSection === sectionId ? 'location' : undefined}
+            >
+              <div className={cn(styles, `side-nav__item${activeSection === sectionId ? ' side-nav__item--active' : ''}`)}>
+                <span className={cn(styles, 'side-nav__tooltip')}>{label}</span>
+                <img className={cn(styles, 'side-nav__icon')} src={icon} alt={alt} />
+              </div>
+            </a>
+          ))}
+        </nav>
+      </div>
     </div>
   );
 }

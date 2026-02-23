@@ -1,9 +1,11 @@
 @import url('https://rsms.me/inter/inter.css');
 @import 'normalize.css';
-@import 'reset.css';
+@import 'reset.scss';
+
 * {
   box-sizing: border-box;
 }
+
 :root {
   --bg: #f5f5f5;
   --bg-soft: #f5f5f5;
@@ -17,6 +19,7 @@
   --accent-strong: #e6a200;
   --accent-link-hover: #f3d465;
 }
+
 :global(body.dark-theme) {
   --bg: #11151d;
   --bg-soft: #1a202b;
@@ -30,15 +33,18 @@
   --accent-strong: #c48a00;
   --accent-link-hover: #cfb456;
 }
+
 body {
   background-color: var(--bg);
   color: var(--text-primary);
   transition: background-color 0.25s ease, color 0.25s ease;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 form label {
   font-family: 'Inter', sans-serif;
   display: block;
@@ -46,7 +52,9 @@ form label {
   font-size: 18px;
   color: var(--text-muted);
 }
-form input, form textarea {
+
+form input,
+form textarea {
   width: 100%;
   padding: 10px;
   border: none;
@@ -54,44 +62,60 @@ form input, form textarea {
   background-color: var(--bg-soft);
   font-size: 16px;
 }
-:global(body.dark-theme) form input, :global(body.dark-theme) form textarea {
+
+:global(body.dark-theme) form input,
+:global(body.dark-theme) form textarea {
   color: #edf3fc;
   background-color: #253141;
   border: 1px solid #3f5168;
   caret-color: #edf3fc;
 }
-:global(body.dark-theme) form input::placeholder, :global(body.dark-theme) form textarea::placeholder {
+
+:global(body.dark-theme) form input::placeholder,
+:global(body.dark-theme) form textarea::placeholder {
   color: #a3b0c2;
 }
-@media (max-width: 1024px){
+
+@media (max-width: 1024px) {
   body {
     padding-top: 86px;
     padding-bottom: 0;
   }
 
-  #home, #services, #testimonials, #cv, #portfolio, #blog, #contacts, #leave-message {
+  #home,
+  #services,
+  #testimonials,
+  #cv,
+  #portfolio,
+  #blog,
+  #contacts,
+  #leave-message {
     scroll-margin-top: 96px;
   }
 }
-@media (max-width: 768px){
+
+@media (max-width: 768px) {
   body {
     padding-top: 80px;
     padding-bottom: 0;
   }
 }
-@media (max-width: 640px){
+
+@media (max-width: 640px) {
   body {
     padding-top: 76px;
     padding-bottom: 0;
   }
 }
-@media (max-width: 480px){
+
+@media (max-width: 480px) {
   body {
     padding-top: 72px;
     padding-bottom: 0;
   }
 }
-@media (max-width: 375px){
+
+@media (max-width: 375px) {
   body {
     padding-top: 68px;
     padding-bottom: 0;

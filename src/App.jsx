@@ -316,8 +316,8 @@ function App() {
         <div className={cn(styles, 'profile-sidebar__cv')}>
           <a
             className={cn(styles, 'profile-sidebar__cv-button')}
-            href="/sample-cv.pdf"
-            download="Oleksandr_Vorona_CV_Sample.pdf"
+            href="/Oleksandr_Vorona_Resume_2026.pdf"
+            download="Oleksandr_Vorona_Resume_2026.pdf"
           >
             Download CV
             <img className={cn(styles, 'profile-sidebar__cv-icon')} src={downloadCv} alt="Download CV" />

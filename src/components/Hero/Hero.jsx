@@ -8,10 +8,22 @@ import { cn } from '../../utils/cn';
 const FULL_TITLE = "I'm Oleksandr Vorona\nSoftware Developer";
 const ACCENT_WORD = 'Software';
 const FIRST_LINE_LENGTH = FULL_TITLE.indexOf('\n');
+const HERO_ANIMATION_REPLAY_INTERVAL_MS = 30000;
 
 const Hero = () => {
     const [typedChars, setTypedChars] = useState(0);
     const [isAccentRevealDone, setIsAccentRevealDone] = useState(false);
+
+    useEffect(() => {
+      const replayTimerId = window.setInterval(() => {
+        setTypedChars(0);
+        setIsAccentRevealDone(false);
+      }, HERO_ANIMATION_REPLAY_INTERVAL_MS);
+
+      return () => {
+        window.clearInterval(replayTimerId);
+      };
+    }, []);
 
     useEffect(() => {
       if (typedChars >= FULL_TITLE.length) {

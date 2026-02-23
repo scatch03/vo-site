@@ -54,9 +54,9 @@ const Pricing = () => {
                     <p className={cn(styles, 'pricing__feature-text--dimmed')}>Production support and ownership</p>
                   </li>
                 </ul>
-               <button className={cn(styles, 'pricing__button')}>
-                Order Now
-               </button>
+               <a href="#leave-message" className={cn(styles, 'pricing__button')}>
+                 Order Now
+               </a>
               </div>
               <div className={cn(styles, 'pricing__card pricing__card--popular')}>
                 <h4 className={cn(styles, 'pricing__plan')}>Standard</h4>
@@ -102,9 +102,9 @@ const Pricing = () => {
                     <p className={cn(styles, 'pricing__feature-text--dimmed')}>Production support and ownership</p>
                   </li>
                 </ul>
-                <button className={cn(styles, 'pricing__button pricing__button--selected')}>
+                <a href="#leave-message" className={cn(styles, 'pricing__button pricing__button--selected')}>
                   Order Now
-                </button>
+                </a>
               </div>
               <div className={cn(styles, 'pricing__card')}>
                 <h4 className={cn(styles, 'pricing__plan')}>Extended</h4>
@@ -150,9 +150,9 @@ const Pricing = () => {
                     <p >Production support and ownership</p>
                   </li>
                 </ul>
-                <button className={cn(styles, 'pricing__button')}>
+                <a href="#leave-message" className={cn(styles, 'pricing__button')}>
                   Order Now
-                </button>
+                </a>
               </div>
             </div>
           </section>

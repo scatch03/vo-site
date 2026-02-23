@@ -168,7 +168,7 @@ app.post('/api/contact', async (req, res) => {
       return res
         .status(429)
         .set('Retry-After', String(retryAfterSeconds))
-        .json({ ok: false, error: 'rate limit exceeded: max 2 messages per 10 minutes per IP' });
+        .json({ ok: false, error: 'Message limit exceeded' });
     }
 
     const { name, email, subject = '', message } = req.body || {};

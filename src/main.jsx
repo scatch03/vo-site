@@ -6,6 +6,7 @@ import AsyncAwaitJavaScriptPage from './Pages/AsyncAwaitJavaScriptPage/AsyncAwai
 import PostgreSQLIndexesPage from './Pages/PostgreSQLIndexesPage/PostgreSQLIndexesPage.jsx'
 import JwtSpringBootPage from './Pages/JwtSpringBootPage/JwtSpringBootPage.jsx'
 import MongoDbTimeSeriesPage from './Pages/MongoDbTimeSeriesPage/MongoDbTimeSeriesPage.jsx'
+import { applySeoForPath } from './seo.js'
 
 const pathname = window.location.pathname.replace(/\/+$/, '') || '/'
 const isDarkTheme = window.localStorage.getItem('theme') === 'dark'
@@ -17,6 +18,7 @@ const blogPagesByPath = {
   '/blog/mongodb-time-series-data': <MongoDbTimeSeriesPage />
 }
 
+applySeoForPath(pathname)
 document.body.classList.toggle('dark-theme', isDarkTheme)
 
 createRoot(document.getElementById('root')).render(

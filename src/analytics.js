@@ -1,6 +1,6 @@
 const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim();
 
-const isGoogleAnalyticsEnabled = () => import.meta.env.PROD && Boolean(GA_MEASUREMENT_ID);
+const isGoogleAnalyticsEnabled = () => Boolean(GA_MEASUREMENT_ID);
 
 export const initGoogleAnalytics = () => {
   if (!isGoogleAnalyticsEnabled()) {

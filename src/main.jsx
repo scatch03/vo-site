@@ -7,6 +7,7 @@ import PostgreSQLIndexesPage from './Pages/PostgreSQLIndexesPage/PostgreSQLIndex
 import JwtSpringBootPage from './Pages/JwtSpringBootPage/JwtSpringBootPage.jsx'
 import MongoDbTimeSeriesPage from './Pages/MongoDbTimeSeriesPage/MongoDbTimeSeriesPage.jsx'
 import { applySeoForPath } from './seo.js'
+import { initGoogleAnalytics } from './analytics.js'
 
 const pathname = window.location.pathname.replace(/\/+$/, '') || '/'
 const isDarkTheme = window.localStorage.getItem('theme') === 'dark'
@@ -19,6 +20,7 @@ const blogPagesByPath = {
 }
 
 applySeoForPath(pathname)
+initGoogleAnalytics()
 document.body.classList.toggle('dark-theme', isDarkTheme)
 
 createRoot(document.getElementById('root')).render(

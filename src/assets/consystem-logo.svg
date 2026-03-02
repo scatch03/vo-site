@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" fill="black"/>
+
+  <!-- 3 concentric diamonds with thick stroke -->
+  <g fill="none" stroke="#f5c800" stroke-width="10" stroke-linejoin="miter">
+    <polygon points="100,40 20,100 100,160 180,100"/>
+    <polygon points="100,58 42,100 100,142 158,100"/>
+    <polygon points="100,76 64,100 100,124 136,100"/>
+  </g>
+
+  <!-- Black vertical gap in center -->
+  <rect x="96" y="30" width="8" height="140" fill="black"/>
+</svg>

@@ -7,8 +7,8 @@
 }
 
 .projects__image {
-  width: 220px;
-  height: 90px;
+  width: 167.2px;
+  height: 68.4px;
   object-fit: contain;
   filter: grayscale(100%);
 }
@@ -22,16 +22,16 @@
   }
 
   .projects__image {
-    width: min(46%, 220px);
-    height: min(18vw, 90px);
+    width: min(46%, 167.2px);
+    height: min(18vw, 68.4px);
   }
 }
 
 @media (max-width: 480px) {
 
   .projects__image {
-    width: min(80%, 220px);
-    height: min(26vw, 90px);
+    width: min(80%, 167.2px);
+    height: min(26vw, 68.4px);
   }
 }
 
@@ -44,7 +44,7 @@
   }
 
   .projects__image {
-    width: min(82vw, 260px);
-    height: min(26vw, 90px);
+    width: min(82vw, 197.6px);
+    height: min(26vw, 68.4px);
   }
 }

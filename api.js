@@ -16,8 +16,12 @@ const BREVO_SENDER_NAME = env.BREVO_SENDER_NAME || 'Portfolio Contact';
 const CONTACT_TO_EMAIL = env.CONTACT_TO || '';
 const CONTACT_TO_NAME = env.CONTACT_TO_NAME || 'Portfolio Owner';
 const successfulSendsByIp = new Map();
+const allowedOrigins = (env.CLIENT_ORIGIN || 'http://localhost:5173')
+  .split(',')
+  .map((value) => value.trim())
+  .filter(Boolean);
 
-app.use(cors({ origin: env.CLIENT_ORIGIN || 'http://localhost:5173' }));
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 const getMissingBrevoConfig = () => {

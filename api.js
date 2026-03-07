@@ -16,6 +16,10 @@ const BREVO_SENDER_NAME = env.BREVO_SENDER_NAME || 'Portfolio Contact';
 const CONTACT_TO_EMAIL = env.CONTACT_TO || '';
 const CONTACT_TO_NAME = env.CONTACT_TO_NAME || 'Portfolio Owner';
 const successfulSendsByIp = new Map();
+const ALLOWED_MAILTO_RECIPIENTS = new Set([
+  'katyagrinchishina@gmail.com',
+  'olexandrvorona@gmail.com',
+]);
 const allowedOrigins = (env.CLIENT_ORIGIN || 'http://localhost:5173')
   .split(',')
   .map((value) => value.trim())
@@ -61,10 +65,17 @@ const getBrevoHeaders = () => ({
   'api-key': BREVO_API_KEY,
 });
 
-const sendMailViaBrevo = async ({ name, email, subject, message }) => {
+const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+const sendMailViaBrevo = async ({ name, email, subject, message, toEmail, toName }) => {
   const missing = getMissingBrevoConfig();
   if (missing.length > 0) {
     throw buildBrevoError('Brevo is not configured', { code: 'E_BREVO_CONFIG', missing });
+  }
+
+  const recipient = { email: toEmail };
+  if (toName) {
+    recipient.name = toName;
   }
 
   const payload = {
@@ -72,12 +83,7 @@ const sendMailViaBrevo = async ({ name, email, subject, message }) => {
       email: BREVO_SENDER_EMAIL,
       name: BREVO_SENDER_NAME,
     },
-    to: [
-      {
-        email: CONTACT_TO_EMAIL,
-        name: CONTACT_TO_NAME,
-      },
-    ],
+    to: [recipient],
     replyTo: {
       email,
       name,
@@ -175,18 +181,40 @@ app.post('/api/contact', async (req, res) => {
         .json({ ok: false, error: 'Message limit exceeded' });
     }
 
-    const { name, email, subject = '', message } = req.body || {};
+    const { name, email, subject = '', message, mailto = '' } = req.body || {};
 
     if (!name || !email || !message) {
       return res.status(400).json({ ok: false, error: 'name, email, message are required' });
     }
 
-    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!isEmailValid) {
+    if (!isValidEmail(email)) {
       return res.status(400).json({ ok: false, error: 'invalid email' });
     }
 
-    await sendMailViaBrevo({ name, email, subject, message });
+    const customRecipient = typeof mailto === 'string' ? mailto.trim() : '';
+    if (customRecipient && !isValidEmail(customRecipient)) {
+      return res.status(400).json({ ok: false, error: 'invalid mailto' });
+    }
+
+    const normalizedCustomRecipient = customRecipient.toLowerCase();
+    if (customRecipient && !ALLOWED_MAILTO_RECIPIENTS.has(normalizedCustomRecipient)) {
+      return res.status(400).json({ ok: false, error: 'mailto is not allowed' });
+    }
+
+    const recipientEmail = customRecipient || CONTACT_TO_EMAIL;
+    if (!recipientEmail) {
+      return res.status(500).json({ ok: false, error: 'email service is not configured' });
+    }
+
+    const recipientName = customRecipient ? '' : CONTACT_TO_NAME;
+    await sendMailViaBrevo({
+      name,
+      email,
+      subject,
+      message,
+      toEmail: recipientEmail,
+      toName: recipientName,
+    });
 
     successfulSendsByIp.set(clientIp, [...recentSuccessfulSends, Date.now()]);
 
